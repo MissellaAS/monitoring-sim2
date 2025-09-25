@@ -19,8 +19,8 @@
 
     @foreach ($products as $product)
     <tr>
-        <td>{{ ++$i }}</td>
-        <td>{{ $product->machine->company }}</td>
+        {{-- <td>{{ ++$i }}</td> --}}
+        <td>{{ $product->machine->machine }}</td>
         <td>{{ $product->product }}</td>
         <td>{{ $product->detail }}</td>
         <td>

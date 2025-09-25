@@ -14,4 +14,9 @@ class Product extends Model
         'detail',
         'status',
     ];
+    public function machine()
+    {
+        return $this->belongsTo(Machine::class);
+    }
+    
 }
