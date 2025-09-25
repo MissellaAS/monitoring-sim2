@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Product;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\MechineController;  
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/product-customer', function () {
-    $products = Product::all(); // ambil semua data product dari database
-    return view('product', compact('products'));
+Route::resource('products', ProductController::class);
+
+Route::resource('machines', MachineController::class);
+
+Route::get('/order', function () {
+    return view('order');
 });
+
