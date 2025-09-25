@@ -1,15 +1,6 @@
 @extends('products.layout');
 @section('content')
-<div class="container">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2> PRODUCTION MONITORING APLICATION</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('products.create') }}"> Create New Product</a>
-        </div>
-    </div>
-</div>
+
 
 @if ($message = Session::get('success'))
     <div class="alert alert-success">
