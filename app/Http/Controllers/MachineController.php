@@ -12,7 +12,8 @@ class MachineController extends Controller
      */
     public function index()
     {
-        //
+        $machines = Machine::all();
+        return view('machines.index', compact('machines'));
     }
 
     /**
@@ -20,7 +21,8 @@ class MachineController extends Controller
      */
     public function create()
     {
-        //
+        // arahkan ke file resources/views/machines/create.blade.php
+        return view('machines.create');
     }
 
     /**
@@ -28,7 +30,20 @@ class MachineController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'machine' => 'required|string|max:255',
+            'code_machine' => 'required|string|max:255',
+            'detail' => 'nullable|string',
+        ]);
+
+        Machine::create([
+            'machine' => $request->machine,
+            'code_machine' => $request->code_machine,
+            'detail' => $request->detail,
+        ]);
+
+        return redirect()->route('machines.index')
+                         ->with('success', 'Machine added successfully.');
     }
 
     /**
@@ -36,7 +51,7 @@ class MachineController extends Controller
      */
     public function show(Machine $machine)
     {
-        //
+        return view('machines.show', compact('machine'));
     }
 
     /**
@@ -44,7 +59,7 @@ class MachineController extends Controller
      */
     public function edit(Machine $machine)
     {
-        //
+        return view('machines.edit', compact('machine'));
     }
 
     /**
@@ -52,7 +67,16 @@ class MachineController extends Controller
      */
     public function update(Request $request, Machine $machine)
     {
-        //
+        $request->validate([
+            'machine' => 'required|string|max:255',
+            'code_machine' => 'required|string|max:255',
+            'detail' => 'nullable|string',
+        ]);
+
+        $machine->update($request->all());
+
+        return redirect()->route('machines.index')
+                         ->with('success', 'Machine updated successfully.');
     }
 
     /**
@@ -60,6 +84,9 @@ class MachineController extends Controller
      */
     public function destroy(Machine $machine)
     {
-        //
+        $machine->delete();
+
+        return redirect()->route('machines.index')
+                         ->with('success', 'Machine deleted successfully.');
     }
 }
