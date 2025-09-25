@@ -1,38 +1,58 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show Machine Milling</title>
+  @vite(['resources/css/style.css'])
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="menu-icon">☰</div>
+  </div>
 
-@section('content')
-<div class="container">
-    <h2 class="mb-4">Detail Machine</h2>
+  <div class="container">
+    <h1>SHOW MACHINE</h1>
 
-    <div class="card shadow-sm">
-        <div class="card-body">
-            <h5 class="card-title mb-3">{{ $machine->company }} - {{ $machine->product }}</h5>
-
-            <p><strong>Company:</strong> {{ $machine->company }}</p>
-            <p><strong>Product:</strong> {{ $machine->product }}</p>
-            <p><strong>Detail:</strong> {{ $machine->detail }}</p>
-            <p><strong>Status:</strong> 
-                @if($machine->status == 'Active')
-                    <span class="badge bg-success">Active</span>
-                @elseif($machine->status == 'Inactive')
-                    <span class="badge bg-secondary">Inactive</span>
-                @else
-                    <span class="badge bg-warning text-dark">Maintenance</span>
-                @endif
-            </p>
-
-            <div class="mt-4">
-                <a href="{{ route('machine.index') }}" class="btn btn-secondary">Kembali</a>
-                <a href="{{ route('machine.edit', $machine->id) }}" class="btn btn-primary">Edit</a>
-
-                <form action="{{ route('machine.destroy', $machine->id) }}" method="POST" class="d-inline">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</button>
-                </form>
-            </div>
-        </div>
+    <div class="back-btn">
+      <button>BACK</button>
     </div>
-</div>
-@endsection
+
+    <div class="info">
+      <div>
+        <h3>MACHINE</h3>
+        
+      </div>
+      <div>
+        <h3>CODE</h3>
+        
+      </div>
+      <div>
+        <h3>DETAIL</h3>
+        
+      </div>
+    </div>
+
+    <div class="product-list">
+      <h3>PRODUCT</h3>
+      <div class="product-item">
+        <span>RING</span>
+        <span class="status onprocess">ON PROCESS</span>
+      </div>
+      <div class="product-item">
+        <span>SHAFT</span>
+        <span class="status finish">FINISH</span>
+      </div>
+      <div class="product-item">
+        <span>BOLT</span>
+        <span class="status prepare">PREPARE</span>
+      </div>
+      <div class="product-item">
+        <span>POCKET</span>
+        <span class="status onprocess">ON PROCESS</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
