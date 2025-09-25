@@ -31,5 +31,8 @@
             document.getElementById('sidebar').classList.toggle('collapsed');
         });
     </script>
+
+    <div class="bFnJ2A _7vS1Yw _682gpw" style="clip-path: url(&quot;#__id146&quot;); background: rgb(0, 0, 0); width: 256px; height: 621.596px; transform: scale(1.23553, 1.23553); transform-origin: 0px 0px; touch-action: pan-x pan-y pinch-zoom;"></div>
+
 </body>
 </html>
