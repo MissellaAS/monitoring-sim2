@@ -8,12 +8,21 @@
 
 </head>
 <body>
-  <!-- Header -->
+  <!-- Navbar -->
   <div class="navbar">
-    <div class="menu-icon">&#9776;</div> <!-- ikon menu -->
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
   </div>
-  @yield('content')
-  <!-- Hero section -->
+
+  <!-- Menu navigasi (disembunyikan dulu) -->
+  <div class="nav-links" id="menu">
+    <a href="#">Home</a>
+    <a href="#">Order List</a>
+    <a href="#">Product Customer</a>
+    <a href="#">Production Monitoring</a>
+    <a href="#">Machine Monitoring</a>
+  </div>
+
+  <!-- Hero Section -->
   <div class="hero">
     <div class="hero-text">
       <h2>Vesta</h2>
@@ -25,5 +34,18 @@
       </p>
     </div>
   </div>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("menu");
+    if (menu.style.display === "flex") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "flex";
+    }
+  }
+</script>
+
+
 </body>
+
 </html>
