@@ -18,7 +18,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 50px;
+      height: 100px;
       background-color: black;
       display: flex;
       align-items: center;
@@ -27,7 +27,7 @@
     }
 
     .menu-icon {
-      font-size: 24px;
+      font-size: 40px;
       color: white;
       cursor: pointer;
     }
@@ -50,18 +50,18 @@
     }
 
     .hero-text h1 {
-      font-size: 50px;
+      font-size: 90px;
       margin: 0;
     }
 
     .hero-text h2 {
-      font-size: 30px;
+      font-size: 50px;
       margin: 0;
       font-weight: bold;
     }
 
     .hero-text p {
-      font-size: 14px;
+      font-size: 20px;
       margin-top: 10px;
       line-height: 1.5;
       letter-spacing: 1px;
