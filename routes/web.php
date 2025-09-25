@@ -2,17 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+<<<<<<< HEAD
 use App\Http\Controllers\MachineController;
 
+=======
+use App\Http\Controllers\MachineController; // <-- betulkan nama controller
+>>>>>>> 92d489519cf4b33ec254c463004b40e038d0d1c9
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
 |
 */
 
@@ -21,6 +21,7 @@ Route::get('/', function () {
 });
 
 Route::resource('products', ProductController::class);
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 
@@ -38,8 +39,11 @@ Route::get('/show', function () {
 
 
 
+=======
+>>>>>>> 92d489519cf4b33ec254c463004b40e038d0d1c9
 
 Route::resource('machines', MachineController::class);
 
-
-
+Route::get('/order', function () {
+    return view('order');
+});
