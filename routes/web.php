@@ -22,3 +22,7 @@ Route::get('/', function () {
 Route::resource('products', ProductController::class);
 
 Route::resource('machines', MachineController::class);
+Route::get('/order', function () {
+    return view('order');
+});
+
