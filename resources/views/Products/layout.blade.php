@@ -32,7 +32,14 @@
         });
     </script>
 
-    <div class="bFnJ2A _7vS1Yw _682gpw" style="clip-path: url(&quot;#__id146&quot;); background: rgb(0, 0, 0); width: 256px; height: 621.596px; transform: scale(1.23553, 1.23553); transform-origin: 0px 0px; touch-action: pan-x pan-y pinch-zoom;"></div>
+    
+    <div class="Izwocg" style="width: 100%; height: 95%; overflow: hidden;">
+  <img 
+    class="_7_i_XA" 
+    src="https://media-public.canva.com/gvGO0/MAEYOOgvGO0/1/s.jpg" 
+    alt="Modern building facade of financial company"
+    style="width: 100%; height: 95%; object-fit: cover;">
+</div>
 
 </body>
 </html>
