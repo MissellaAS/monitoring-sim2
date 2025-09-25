@@ -72,7 +72,15 @@
 <body>
   <!-- Header -->
   <div class="navbar">
-    <div class="menu-icon">&#9776;</div> <!-- ikon menu -->
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div> <!-- ikon menu -->
+  </div>
+  
+  <div class="nav-links" id="menu">
+    <a href="#">Home</a>
+    <a href="#">Order List</a>
+    <a href="#">Product Customer</a>
+    <a href="#">Production Monitoring</a>
+    <a href="#">Machine Monitoring</a>
   </div>
 
   <!-- Hero section -->
@@ -87,5 +95,13 @@
       </p>
     </div>
   </div>
+  function toggleMenu() {
+    var menu = document.getElementById("menu");
+    if (menu.style.display === "block") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "block";
+    }
+  }
 </body>
 </html>
