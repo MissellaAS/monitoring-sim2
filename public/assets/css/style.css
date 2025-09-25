@@ -29,9 +29,10 @@
     /* Background gedung */
     .hero {
       height: 100vh;
+      width: 100%;
       background: url("https://media-public.canva.com/gvGO0/MAEYOOgvGO0/1/s.jpg") no-repeat center center;
       background-size: cover;
-      position: relative;
+      position: absolute;
       color: white;
     }
 
