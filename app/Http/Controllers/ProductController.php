@@ -14,9 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->paginate(10);
-
-        return view('products.index', compact('products'))->with(request()->input('page'));
+        $products = Product::all();
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -24,8 +23,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $machines = Machine::all();
-        return view('products.create', compact('machines'));
+        return view('products.create');
     }
 
     /**
