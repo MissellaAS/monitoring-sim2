@@ -17,15 +17,6 @@
     </div>
 @endif
 
-<table class="table table-bordered">
-    <tr>
-        <th>No</th>
-        <th>Company</th>
-        <th>Product</th>
-        <th>Detail</th>
-        <th>Status</th>
-        <th width="280px">Action</th>
-    </tr>
     @foreach ($products as $product)
     <tr>
         <td>{{ ++$i }}</td>
