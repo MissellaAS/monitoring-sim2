@@ -84,6 +84,21 @@
     <a href="#">Machine Monitoring</a>
   </div>
 
+  <script >
+    // Fungsi untuk toggle menu
+    function toggleMenu() {
+      var menu = document.getElementById("menu");
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "block";
+      }
+    }
+
+    // Event listener untuk ikon menu
+    document.querySelector('.menu-icon').addEventListener('click', toggleMenu);
+  </script>
+
   <!-- Hero Section -->
   <div class="hero">
     <div class="hero-text">
