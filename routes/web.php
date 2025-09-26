@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MachineController;
+use App\Http\Controllers\ProductCustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,9 @@ Route::resource('machines', MachineController::class);
 Route::get('/order', function () {
     return view('order');
 });
-// Route::get('/show', function () {
-//     return view('show');
-// });
+
+Route::get('/product-customer', [ProductCustomerController::class, 'index'])->name('product-customer.index');
+
+Route::get('/show', function () {
+    return view('show');
+});
