@@ -14,7 +14,7 @@
   </div>
 
   <!-- Menu navigasi (disembunyikan dulu) -->
-  <div class="nav-links" id="menu">
+  <div class="nav-links" id="menu" >
     <a href="#">Home</a>
     <a href="#">Order List</a>
     <a href="#">Product Customer</a>
