@@ -142,14 +142,6 @@
         <textarea id="details" placeholder="Enter details"></textarea>
       </div>
     </div>
-<<<<<<< HEAD
-
-
-    
-</form>
-@endsection
-=======
->>>>>>> 55b9cf9199e2e6389fea0501003ed39674d96591
 
     <!-- Right: Status -->
     <div class="status-section">

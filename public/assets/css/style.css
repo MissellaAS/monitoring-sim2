@@ -28,12 +28,8 @@
 
     /* Background gedung */
     .hero {
-<<<<<<< HEAD
-      height: 98vh;
-=======
       height: 100vh;
       width: 100%;
->>>>>>> 55b9cf9199e2e6389fea0501003ed39674d96591
       background: url("https://media-public.canva.com/gvGO0/MAEYOOgvGO0/1/s.jpg") no-repeat center center;
       background-size: cover;
       position: absolute;
