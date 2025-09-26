@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MachineController; // <-- betulkan nama controller
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,8 @@ Route::get('/order', function () {
 
 
 Route::resource('machines', MachineController::class);
+
+Route::resource('orders', OrderController::class);
 
 
 
