@@ -25,4 +25,6 @@ Route::resource('machines', MachineController::class);
 Route::get('/order', function () {
     return view('order');
 });
-
+// Route::get('/show', function () {
+//     return view('show');
+// });

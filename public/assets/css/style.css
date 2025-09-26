@@ -105,3 +105,61 @@
 .nav-links a:hover {
   text-decoration: underline;
 }
+
+/* hapus */
+/* RESET DASAR & FONT */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Latar belakang body hitam */
+    color: white;
+    /* Pastikan tinggi minimal untuk melihat efek penuh */
+    min-height: 100vh; 
+}
+
+/* 1. HEADER HITAM (Area atas) */
+.top-header {
+    background-color: black;
+    height: 50px; /* Tinggi header hitam */
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon {
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+    color: white;
+}
+
+/* 2. AREA KONTEN UTAMA BIRU */
+.content-area {
+    background-color: #007bff; /* Warna biru utama */
+    padding: 20px;
+    position: relative; /* Diperlukan untuk menempatkan tombol 'BACK' */
+    min-height: calc(100vh - 50px); /* Sisa tinggi layar */
+    color: black; /* Warna teks default di area biru */
+}
+
+/* Tombol BACK */
+.back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+

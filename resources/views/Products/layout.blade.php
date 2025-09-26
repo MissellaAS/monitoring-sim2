@@ -95,6 +95,7 @@
       </p>
     </div>
   </div>
+  <script>
   function toggleMenu() {
     var menu = document.getElementById("menu");
     if (menu.style.display === "block") {
@@ -103,5 +104,7 @@
       menu.style.display = "block";
     }
   }
+  </script>
+
 </body>
 </html>

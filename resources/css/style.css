@@ -1,240 +1,161 @@
-/* Reset */
+/* RESET DASAR & FONT */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background: #176b93;
-  color: black;
-  min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Latar belakang body hitam */
+    color: white;
+    /* Pastikan tinggi minimal untuk melihat efek penuh */
+    min-height: 100vh; 
 }
 
-/* Navbar */
-.navbar {
-  background: black;
-  padding: 15px;
-}
-
-.menu-icon {
-  font-size: 28px;
-  color: white;
-  cursor: pointer;
-}
-
-/* Container */
-.container {
-  text-align: center;
-  padding: 30px 20px;
-  color: white;
-}
-
-.container h1 {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 40px;
-}
-
-/* Back button */
-.back-btn {
-  position: absolute;
-  top: 80px;
-  right: 30px;
-}
-
-.back-btn button {
-  background: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* Info section */
-.info {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 50px;
-  color: black;
-  background: #176b93;
-}
-
-.info h3 {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: white;
-}
-
-.info p {
-  font-size: 16px;
-  color: white;
-}
-
-/* Product List */
-.product-list {
-  margin-top: 20px;
-  text-align: left;
-  color: black;
-}
-
-.product-list h3 {
-  margin-bottom: 15px;
-  font-size: 16px;
-  color: white;
-}
-
-.product-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  padding: 15px 20px;
-  margin-bottom: 15px;
-  border-radius: 30px;
-  font-weight: bold;
-}
-
-.status {
-  padding: 5px 15px;
-  border-radius: 20px;
-  color: black;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.status.onprocess {
-  background: #4fc3f7;
-}
-
-.status.finish {
-  background: #29b6f6;
-}
-
-.status.prepare {
-  background: #81d4fa;
-}
-
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
-  background: #176b93;
-  color: black;
-  min-height: 100vh;
-}
-
-/* Navbar */
-.navbar {
-  background: black;
-  padding: 15px;
+/* 1. HEADER HITAM (Area atas) */
+.top-header {
+    background-color: black;
+    height: 50px; /* Tinggi header hitam */
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
 }
 
 .menu-icon {
-  font-size: 28px;
-  color: white;
-  cursor: pointer;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+    color: white;
 }
 
-/* Container */
-.container {
-  text-align: center;
-  padding: 30px 20px;
-  color: white;
+/* 2. AREA KONTEN UTAMA BIRU */
+.content-area {
+    background-color: #007bff; /* Warna biru utama */
+    padding: 20px;
+    position: relative; /* Diperlukan untuk menempatkan tombol 'BACK' */
+    min-height: calc(100vh - 50px); /* Sisa tinggi layar */
+    color: black; /* Warna teks default di area biru */
 }
 
-.container h1 {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 40px;
+/* Tombol BACK */
+.back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 12px;
 }
 
-/* Back button */
-.back-btn {
-  position: absolute;
-  top: 80px;
-  right: 30px;
+/* Judul Utama */
+.main-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 900;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    line-height: 1.2;
 }
 
-.back-btn button {
-  background: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-weight: bold;
-  cursor: pointer;
+/* Detail Mesin (MACHINE, CODE, DETAIL) */
+.machine-details {
+    display: flex;
+    justify-content: space-around; /* Menyebar kolom secara merata */
+    text-align: center;
+    margin-bottom: 50px;
+    color: black;
 }
 
-/* Info section */
-.info {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 50px;
-  color: black;
-  background: #176b93;
+.detail-column {
+    display: flex;
+    flex-direction: column;
+    width: 33%; /* Memastikan setiap kolom mendapat bagian yang sama */
 }
 
-.info h3 {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: white;
+.detail-label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    text-transform: uppercase;
 }
 
-.info p {
-  font-size: 16px;
-  color: white;
+.detail-value {
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
-/* Product List */
-.product-list {
-  margin-top: 20px;
-  text-align: left;
-  color: black;
+/* BAGIAN PRODUK */
+.product-section {
+    max-width: 600px; /* Batasi lebar untuk tampilan seperti kartu */
+    margin: 0 auto; /* Tengah di layar yang lebih besar */
+    padding: 0 10px;
 }
 
-.product-list h3 {
-  margin-bottom: 15px;
-  font-size: 16px;
-  color: white;
+.section-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    margin-bottom: 15px;
+    text-transform: uppercase;
 }
 
 .product-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  padding: 15px 20px;
-  margin-bottom: 15px;
-  border-radius: 30px;
-  font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    color: black;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 10px; /* Sudut membulat */
+    min-height: 60px; /* Tinggi minimum untuk item */
+    cursor: pointer;
 }
 
-.status {
-  padding: 5px 15px;
-  border-radius: 20px;
-  color: black;
-  font-size: 14px;
-  font-weight: bold;
+.product-name {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
-.status.onprocess {
-  background: #4fc3f7;
+/* Garis Ungu untuk item yang sedang ON PROCESS (RING) */
+.status-on-process-border {
+    border: 3px solid #9900ff; /* Warna ungu */
+    padding: 12px 17px; /* Sesuaikan padding agar total ukuran tetap sama */
 }
 
-.status.finish {
-  background: #29b6f6;
+
+/* Tombol Status (Kapsul) */
+.status-button {
+    padding: 8px 15px;
+    border-radius: 20px; /* Bentuk kapsul */
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    min-width: 100px;
+    text-align: center;
+    white-space: nowrap; /* Mencegah teks terpotong */
 }
 
-.status.prepare {
-  background: #81d4fa;
+.on-process {
+    background-color: #007bff; /* Biru */
 }
 
+.finish {
+    background-color: #28a745; /* Hijau */
+}
+
+.prepare {
+    background-color: #ffc107; /* Kuning/Orange */
+    color: black;
+}

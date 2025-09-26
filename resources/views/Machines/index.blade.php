@@ -1,65 +1,54 @@
-{{-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Show Machine Milling</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Navbar -->
-  <div class="navbar">
-    <div class="menu-icon">☰</div>
-  </div>
+@extends('machines.layout')
+@section('content')
 
-  <!-- Container -->
-  <div class="container">
-    <h1>SHOW MACHINE<br>MILLING</h1>
-
-    <!-- Back button -->
-    <div class="back-btn">
-      <button>BACK</button>
+@if ($message = Session::get('success'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
     </div>
+@endif
 
-    <div class="info">
-      <div>
-        <h3>MACHINE</h3>
-        <p>MILLING</p>
-      </div>
-      <div>
-        <h3>CODE</h3>
-        <p>BEIJING 1</p>
-      </div>
-      <div>
-        <h3>DETAIL</h3>
-        <p>MILLING</p>
-      </div>
-    </div>
+<table class="table table-bordered">
+    <tr>
+        <td>ID</td>
+        <td>MACHINE</td>
+        <td>CODE</td>
+        <td>DETAIL</td>
+        <td>STATUS</td>
+        <td width="280px">ACTION</td>
+    </tr>
 
-    <!-- Product List -->
-    <div class="product-list">
-      <h3>PRODUCT</h3>
+    @if ($machines->isEmpty())
+        <tr>
+            <td colspan="6">No Machines found.</td>
+        </tr>
+    @else
+        @foreach ($machines as $machine)
+        <tr>
+            <td>{{ $machine->id }}</td>
+            <td>{{ $machine->machine }}</td>
+            <td>{{ $machine->code }}</td>
+            <td>{{ $machine->detail }}</td>
+            <td>
+                @if($machine->status == 'Onprocess')
+                    <span class="badge bg-success">Onprocess</span>
+                @elseif($machine->status == 'Finished')
+                    <span class="badge bg-danger">Finished</span>
+                @else
+                    <span class="badge bg-warning text-dark">Pending</span>
+                @endif
+            </td>
+            <td>
+                <form action="{{ route('machines.destroy',$machine->id) }}" method="POST">
+                    <a class="btn btn-info" href="{{ route('machines.show',$machine->id) }}">Show</a>
+                    <a class="btn btn-primary" href="{{ route('machines.edit',$machine->id) }}">Edit</a>
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Delete</button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+    @endif
+</table>
 
-      <div class="product-item">
-        <span>RING</span>
-        <span class="status onprocess">ON PROCESS</span>
-      </div>
-
-      <div class="product-item">
-        <span>SHAFT</span>
-        <span class="status finish">FINISH</span>
-      </div>
-
-      <div class="product-item">
-        <span>BOLT</span>
-        <span class="status prepare">PREPARE</span>
-      </div>
-
-      <div class="product-item">
-        <span>POCKET</span>
-        <span class="status onprocess">ON PROCESS</span>
-      </div>
-    </div>
-  </div>
-</body>
-</html> --}}
+@endsection
