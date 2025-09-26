@@ -27,3 +27,8 @@ Route::get('/order', function () {
     return view('order');
 });
 
+
+Route::resource('machines', MachineController::class);
+
+
+

@@ -18,7 +18,7 @@
     <a href="#">Home</a>
     <a href="#">Order List</a>
     <a href="#">Product Customer</a>
-    <a href="#">Production Monitoring</a>
+    <a href="{{ route('products.index') }}">Production Monitoring</a>
     <a href="#">Machine Monitoring</a>
   </div>
 
