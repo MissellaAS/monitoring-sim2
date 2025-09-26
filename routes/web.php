@@ -2,8 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+<<<<<<< HEAD
 use App\Http\Controllers\MachineController;
 use App\Http\Controllers\ProductCustomerController;
+=======
+use App\Http\Controllers\MachineController; // <-- betulkan nama controller
+use App\Http\Controllers\OrderController;
+>>>>>>> baddb4984722d94ff0cf9a4ca77334604c7d8d7f
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +36,9 @@ Route::get('/order', function () {
 
 Route::get('/product-customer', [ProductCustomerController::class, 'index'])->name('product-customer.index');
 
-Route::get('/show', function () {
-    return view('show');
-});
+Route::resource('machines', MachineController::class);
+
+Route::resource('orders', OrderController::class);
+
+
+
