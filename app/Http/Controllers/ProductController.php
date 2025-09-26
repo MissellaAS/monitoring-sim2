@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $machines = Machine::all();
+        $machines = machine::all();
         return view('products.create', compact('machines'));
     }
 
@@ -44,7 +44,7 @@ class ProductController extends Controller
         Product::create($request->all());
 
         return redirect()->route('products.index')
-            ->with('success', 'Product created successfully.');
+            ->with('success', 'Products created successfully.');
     }
 
     /**

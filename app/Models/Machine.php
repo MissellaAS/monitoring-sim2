@@ -15,8 +15,8 @@ class Machine extends Model
         'detail',
     ];
 
-    public function products(): HasMany
-    {
-        return $this->hasMany(Product::class);
-    }
-}
+//     public function products(): HasMany
+//     {
+//         return $this->hasMany(Product::class);
+//     }
+ }

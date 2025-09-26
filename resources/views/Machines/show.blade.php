@@ -1,38 +1,63 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOW MACHINE MILLING</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
 
-@section('content')
-<div class="container">
-    <h2 class="mb-4">Detail Machine</h2>
+        <header class="top-header">
+            <div class="menu-icon">
+                &#9776; </div>
+        </header>
 
-    <div class="card shadow-sm">
-        <div class="card-body">
-            <h5 class="card-title mb-3">{{ $machine->company }} - {{ $machine->product }}</h5>
+        <div class="content-area">
+            
+            <button class="back-button">BACK</button>
 
-            <p><strong>Company:</strong> {{ $machine->company }}</p>
-            <p><strong>Product:</strong> {{ $machine->product }}</p>
-            <p><strong>Detail:</strong> {{ $machine->detail }}</p>
-            <p><strong>Status:</strong> 
-                @if($machine->status == 'Active')
-                    <span class="badge bg-success">Active</span>
-                @elseif($machine->status == 'Inactive')
-                    <span class="badge bg-secondary">Inactive</span>
-                @else
-                    <span class="badge bg-warning text-dark">Maintenance</span>
-                @endif
-            </p>
+            <h1 class="main-title">SHOW MACHINE <br> MILLING</h1>
 
-            <div class="mt-4">
-                <a href="{{ route('machine.index') }}" class="btn btn-secondary">Kembali</a>
-                <a href="{{ route('machine.edit', $machine->id) }}" class="btn btn-primary">Edit</a>
-
-                <form action="{{ route('machine.destroy', $machine->id) }}" method="POST" class="d-inline">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</button>
-                </form>
+            <div class="machine-details">
+                <div class="detail-column">
+                    <span class="detail-label">MACHINE</span>
+                    <span class="detail-value">MILLING</span>
+                </div>
+                <div class="detail-column">
+                    <span class="detail-label">CODE</span>
+                    <span class="detail-value">BEIJING 1</span>
+                </div>
+                <div class="detail-column">
+                    <span class="detail-label">DETAIL</span>
+                    <span class="detail-value">MILLING</span>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
-@endsection
+
+            <div class="product-section">
+                <h2 class="section-title">PRODUCT</h2>
+                
+                <div class="product-item status-on-process-border">
+                    <span class="product-name">RING</span>
+                    <div class="status-button on-process">ON PROCESS</div>
+                </div>
+
+                <div class="product-item">
+                    <span class="product-name">SHAFT</span>
+                    <div class="status-button finish">FINISH</div>
+                </div>
+
+                <div class="product-item">
+                    <span class="product-name">BOLT</span>
+                    <div class="status-button prepare">PREPARE</div>
+                </div>
+
+                <div class="product-item">
+                    <span class="product-name">POCKET</span>
+                    <div class="status-button on-process">ON PROCESS</div>
+                </div>
+            </div>
+
+        </div> </div> </body>
+</html>

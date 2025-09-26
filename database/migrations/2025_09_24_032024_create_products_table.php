@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('machine', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('machine');
-            $table->string('code');
+            $table->foreignId('machine_id')->constrained(
+                table: 'machines',
+                indexName: 'products_machine_id_',
+            );
+            $table->string('product');
             $table->string('detail');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -25,6 +29,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('machine');
+        Schema::dropIfExists('products');
     }
 };
+  
