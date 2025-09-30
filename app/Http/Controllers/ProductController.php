@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $machines = machine::all();
+        $machines = Machine::all();
         return view('products.create', compact('machines'));
     }
 

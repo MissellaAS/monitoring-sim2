@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('machine_id')->constrained(
-                table: 'machine',
+                table: 'machines',
                 indexName: 'products_machine_id_',
             );
             $table->string('product');
@@ -32,4 +32,3 @@ return new class extends Migration
         Schema::dropIfExists('products');
     }
 };
-  
