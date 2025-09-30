@@ -81,7 +81,7 @@
     <a href="{{ route('products.create') }}">Order List</a>
     <a href="#">Product Customer</a>
     <a href="#">Production Monitoring</a>
-    <a href="#">Machine Monitoring</a>
+    <a href="{{ route('machines.create') }}">Machine Monitoring</a>
   </div>
 
   <script >
