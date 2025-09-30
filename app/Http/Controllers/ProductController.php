@@ -23,7 +23,12 @@ class ProductController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         return view('products.create');
+=======
+        $machines = machine::all();
+        return view('products.create', compact('machines'));
+>>>>>>> 8d015f0e5c3d450df370f075154b1212853f01a5
     }
 
     /**
@@ -42,7 +47,7 @@ class ProductController extends Controller
         Product::create($request->all());
 
         return redirect()->route('products.index')
-            ->with('success', 'Product created successfully.');
+            ->with('success', 'Products created successfully.');
     }
 
     /**
