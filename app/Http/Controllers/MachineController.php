@@ -21,8 +21,14 @@ class MachineController extends Controller
      */
     public function create()
     {
+    //         $products = [
+    //     ['name' => 'RING', 'status' => 'ON PROCESS'],
+    //     ['name' => 'SHAFT', 'status' => 'FINISH'],
+    //     ['name' => 'BOLT', 'status' => 'PREPARE'],
+    //     ['name' => 'POCKET', 'status' => 'ON PROCESS'],
+    // ];
         // arahkan ke file resources/views/machines/create.blade.php
-        // return view('machines.create');
+        // return view('machines.show', compact('products'));
 
         $machines = machine::all();
         return view('machines.create', compact('machines'));
