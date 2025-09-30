@@ -78,12 +78,11 @@
   <!-- Menu navigasi (disembunyikan dulu) -->
   <div class="nav-links" id="menu">
     <a href="#">Home</a>
-    <a href="{{ route('products.create') }}">Order List</a>
+    <a href="{{ route('orders.create') }}">Order List</a>
     <a href="#">Product Customer</a>
     <a href="#">Production Monitoring</a>
-    <a href="#">Machine Monitoring</a>
+    <a href="{{ route('machines.index') }}">Machine Monitoring</a>
   </div>
-
   <script >
     // Fungsi untuk toggle menu
     function toggleMenu() {

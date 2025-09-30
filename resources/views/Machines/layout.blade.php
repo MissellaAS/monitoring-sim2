@@ -14,10 +14,10 @@
   
   <div class="nav-links" id="menu">
     <a href="#">Home</a>
-    <a href="#">Order List</a>
+    <a href="{{ route('orders.create') }}">Order List</a>
     <a href="#">Product Customer</a>
     <a href="#">Production Monitoring</a>
-    <a href="#">Machine Monitoring</a>
+    <a href="{{ route('machines.index') }}">Machine Monitoring</a>
   </div>
 @yield('content')
   <script>

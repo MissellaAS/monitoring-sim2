@@ -1,215 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- <!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Order List</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #13729a;
-      color: #000;
-      
-    }
-
-    /* Navbar */
-    .navbar {
-      background-color: #000;
-      padding: 10px 15px;
-    }
-    .menu-icon {
-      font-size: 25px;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    /* Container */
-    .container {
-      display: left;
-      justify-content: space-between;
-      padding: 10px;
-    }
-
-    /* Left Section */
-    .form-section {
-      flex: 1;
-      margin-right: 50px;
-      background-color: #13729a;
-      padding: 30px;
-      border-radius: 15px;
-      text-align: right;
-    }
-
-    .form-section h2 {
-      font-weight: bold;
-      margin-bottom: 25px;
-      color: #000;
-      text-align: left;
-      padding-left: 70px;
-      
-
-    }
-    .form-group {
-      margin-bottom: 20px;
-      text-align: left;
-      padding-left: 100px;
-      width: 50%;
-    }
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-      color: #fff;
-    }
-    input, textarea {
-      width: 80%;
-      padding: 12px;
-      border-radius: 10px;
-      border: none;
-      font-size: 14px;
-    }
-    textarea {
-      height: 120px;
-      resize: none;
-    }
-
-    /* Right Section */
-    .status-section {
-      width: 250px;
-      text-align: center;
-      padding: 30px;
-
-    }
-    .status-section h3 {
-      margin-bottom: 25px;
-      font-weight: bold;
-      color: #000;
-    }
-    .status-btn {
-      display: block;
-      margin: 15px auto;
-      padding: 12px 35px;
-      border-radius: 25px;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .status-btn:hover {
-      opacity: 0.9;
-      transform: scale(1.05);
-    }
-    .red { background-color: #e74c3c; color: white; }
-    .yellow { background-color: #f1c40f; color: #000; }
-    .green { background-color: #2ecc71; color: white; }
-
-    /* Status aktif */
-    .active {
-      outline: 3px solid #000;
-    }
-
-    /* Confirm Button */
-    .confirm-btn {
-      margin-top: 40px;
-      padding: 12px 40px;
-      background-color: #fff;
-      color: #000;
-      border-radius: 25px;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .confirm-btn:hover {
-      background-color: #ddd;
-    }
-  </style>
+    <title>Add New Machine</title>
+    <style>
+        body {
+            background-color: #0b77a5; /* biru tua background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background: black;
+            padding: 10px;
+        }
+        .navbar i {
+            color: white;
+            font-size: 24px;
+        }
+        .container {
+            margin: 30px auto;
+            width: 600px;
+            background: #0b77a5; /* biru sama dengan background */
+            padding: 20px;
+            border-radius: 5px; /* sudut tetap membulat */
+            position: relative;
+        }
+        h2 {
+            color: black;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        label {
+            color: black;
+            display: block;
+            margin-top: 15px;
+            font-weight: normal;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn-submit {
+            display: block;
+            margin: 20px auto 0 auto;
+            background: #4db8ff;
+            padding: 10px 25px;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .btn-back {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #4db8ff;
+            padding: 5px 20px;
+            text-decoration: none;
+            color: black;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <div class="navbar">
-    <span class="menu-icon">&#9776;</span>
-  </div>
-
-  <!-- Content -->
-  <div class="container">
-    <!-- Left: Form -->
-    <div class="form-section">
-      <h2>Order List</h2>
-      <div class="pull-right">
-        <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
-      </div>
+    Navbar hitam dengan icon -->
+    <div class="navbar">
+        <i>&#9776;</i>
     </div>
 
-<form action="{{ route('products.store') }}" method="POST">
-    @csrf
+    <!-- Box utama -->
+    <div class="container">
+        <a href="{{ url()->previous() }}" class="btn-back">BACK</a>
+        <h2>ADD NEW MACHINE</h2>
 
-    <div> 
-      <div class="form-group">
-        <label>Company</label>
-        <input type="text" id="company" placeholder="Enter company name">
-      </div>
-      <div class="form-group">
-        <label>Product</label>
-        <input type="text" id="product" placeholder="Enter product name">
-      </div>
-      <div class="form-group">
-        <label>Details</label>
-        <textarea id="details" placeholder="Enter details"></textarea>
-      </div>
+        <form action="{{ route('machines.store') }}" method="POST">
+            @csrf
+            <label>Machine</label>
+            <input type="text" name="machine" required>
+
+            <label>Code Machine</label>
+            <input type="text" name="code_machine" required>
+
+            <label>Detail</label>
+            <input type="text" name="detail">
+
+            <button type="submit" class="btn-submit">SUBMIT</button>
+        </form>
     </div>
-
-    <!-- Right: Status -->
-    <div class="status-section col-md-4 right">
-      <h3>Status Product</h3>
-      <button class="status-btn red" name="preparation" value="preparation" for="option0">Preparation</button>
-      <button class="status-btn yellow" name="onprocess" value="onprocess" for="option1">On Process</button>
-      <button class="status-btn green" name="finish" value="finish" for="option2">Finish</button>
-
-      <button class="confirm-btn">CONFIRM</button>
-    </div>
-  </div>
-
-  <script>
-    // Pilih semua tombol status
-    const statusButtons = document.querySelectorAll('.status-btn');
-    let selectedStatus = null;
-
-    // Tambahkan event listener untuk tiap tombol status
-    statusButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Hapus kelas aktif dari semua tombol
-        statusButtons.forEach(btn => btn.classList.remove('active'));
-        // Tambah kelas aktif ke tombol yang diklik
-        button.classList.add('active');
-        selectedStatus = button.textContent;
-      });
-    });
-
-    // Event untuk tombol confirm
-    document.querySelector('.confirm-btn').addEventListener('click', () => {
-      const company = document.getElementById('company').value;
-      const product = document.getElementById('product').value;
-      const details = document.getElementById('details').value;
-
-      if (!company || !product || !details) {
-        alert("Harap isi semua form sebelum konfirmasi!");
-        return;
-      }
-
-      if (!selectedStatus) {
-        alert("Harap pilih status produk terlebih dahulu!");
-        return;
-      }
-
-      alert(
-        "Order Confirmed!\n\n" +
-        "Company: " + company + "\n" +
-        "Product: " + product + "\n" +
-        "Details: " + details + "\n" +
-        "Status: " + selectedStatus
-      );
-    });
-  </script>
 </body>
 </html>
