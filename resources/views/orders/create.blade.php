@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <title>ADD NEW PRODUCTION</title>
+  
+
   <title>Order List</title>
   <style>
     body {
@@ -14,12 +20,27 @@
     /* Navbar */
     .navbar {
       background-color: #000;
-      padding: 10px 15px;
+      color: #fff;
+      padding: 5px;
     }
     .menu-icon {
-      font-size: 25px;
-      color: #fff;
+      font-size: 24px;
       cursor: pointer;
+      margin-left: 20px;
+    }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background-color: #000;
+      padding: 10px;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 0;
+    }
+    .nav-links a:hover {
+      background-color: #333;
     }
 
     /* Container */
@@ -129,13 +150,31 @@
     .confirm-btn:hover {
       background-color: #ddd;
     }
+    .pull-right {
+      margin: 10px 0;
+      text-align: left;
+    }
   </style>
 </head>
 <body>
   <!-- Navbar -->
   <div class="navbar">
-    <span class="menu-icon">&#9776;</span>
+    <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
   </div>
+
+  <div class="nav-links" id="menu">
+    <a href="{{ url('/products') }}">Home</a>
+    <a href="#">Product Customer</a>
+    <a href="#">Production Monitoring</a>
+    <a href="{{ route('machines.index') }}">Machine Monitoring</a>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+  </script>
 
   <!-- Content -->
   <div class="container">
