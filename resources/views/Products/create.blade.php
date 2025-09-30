@@ -9,6 +9,7 @@
       font-family: Arial, sans-serif;
       background-color: #13729a;
       color: #000;
+      
     }
 
     /* Navbar */
@@ -24,22 +25,35 @@
 
     /* Container */
     .container {
-      display: flex;
+      display: left;
       justify-content: space-between;
-      padding: 40px;
+      padding: 10px;
     }
 
     /* Left Section */
     .form-section {
       flex: 1;
+      margin-right: 50px;
+      background-color: #13729a;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: right;
     }
+
     .form-section h2 {
       font-weight: bold;
       margin-bottom: 25px;
       color: #000;
+      text-align: left;
+      padding-left: 70px;
+      
+
     }
     .form-group {
       margin-bottom: 20px;
+      text-align: left;
+      padding-left: 100px;
+      width: 50%;
     }
     label {
       display: block;
@@ -63,10 +77,12 @@
     .status-section {
       width: 250px;
       text-align: center;
+      padding: 30px;
+
     }
     .status-section h3 {
       margin-bottom: 25px;
-      font-weight: normal;
+      font-weight: bold;
       color: #000;
     }
     .status-btn {
@@ -144,7 +160,7 @@
     </div>
 
     <!-- Right: Status -->
-    <div class="status-section">
+    <div class="status-section col-md-4 right">
       <h3>Status Product</h3>
       <button class="status-btn red" name="preparation" value="preparation" for="option0">Preparation</button>
       <button class="status-btn yellow" name="onprocess" value="onprocess" for="option1">On Process</button>
