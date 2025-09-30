@@ -94,6 +94,7 @@
       font-weight: bold;
       cursor: pointer;
       transition: 0.2s;
+      width: 146px;
     }
     .status-btn:hover {
       opacity: 0.9;
