@@ -116,8 +116,8 @@
           <th>MACHINE</th>
           <th>CODE MACHINE</th>
           <th>DETAIL</th>
-          <th>ACTION</th>
           <th>STATUS</th>
+          <th>ACTION</th>
         </tr>
       </thead>
       <tbody>
