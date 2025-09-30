@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
   <title>Order List</title>
   <style>
     body {
@@ -47,15 +46,22 @@
       justify-content: space-between;
       align-items: flex-start;
       gap: 50px;
+      display: flex;
+      justify-content: space-between;
+      padding: 40px;
     }
 
     /* Left Section */
     .form-section {
       flex: 1;
     }
+    .form-section h2 {
+      font-weight: bold;
+      margin-bottom: 25px;
+      color: #000;
+    }
     .form-group {
       margin-bottom: 20px;
-      text-align: left;
     }
     label {
       display: block;
@@ -64,7 +70,7 @@
       color: #fff;
     }
     input, textarea {
-      width: 100%;
+      width: 80%;
       padding: 12px;
       border-radius: 10px;
       border: none;
@@ -79,13 +85,11 @@
     .status-section {
       width: 250px;
       text-align: center;
-      padding: 20px;
     }
     .status-section h3 {
-      margin-bottom: 20px;
-      font-weight: bold;
-      color: #ffffffff;
-      font-size: 23px;
+      margin-bottom: 25px;
+      font-weight: normal;
+      color: #000;
     }
     .status-btn {
       display: block;
@@ -96,7 +100,6 @@
       font-weight: bold;
       cursor: pointer;
       transition: 0.2s;
-      width: 146px;
     }
     .status-btn:hover {
       opacity: 0.9;
@@ -136,76 +139,82 @@
 
   <!-- Content -->
   <div class="container">
-    <h2 class="form-title">Order Form</h2>
-    <div class="pull-right mb-3">
-      <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
+    <!-- Left: Form -->
+    <div class="form-section">
+      <h2>Order List</h2>
+      <div class="pull-right">
+        <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
+      </div>
     </div>
 
-    <form action="{{ route('products.store') }}" method="POST">
-      @csrf
+<form action="{{ route('products.store') }}" method="POST">
+    @csrf
 
-      <div class="form-wrapper">
-        <!-- Left: Form -->
-        <div class="form-section">
-          <div class="form-group">
-            <label for="company">Company</label>
-            <input type="text" id="company" name="company" placeholder="Enter company name">
-          </div>
-          <div class="form-group">
-            <label for="product">Product</label>
-            <input type="text" id="product" name="product" placeholder="Enter product name">
-          </div>
-          <div class="form-group">
-            <label for="details">Details</label>
-            <textarea id="details" name="details" placeholder="Enter details"></textarea>
-          </div>
-        </div>
-
-        <!-- Right: Status -->
-        <div class="status-section">
-          <h3>Status Product</h3>
-          <button type="button" class="status-btn red" value="preparation">Preparation</button>
-          <button type="button" class="status-btn yellow" value="onprocess">On Process</button>
-          <button type="button" class="status-btn green" value="finish">Finish</button>
-        </div>
+    <div> 
+      <div class="form-group">
+        <label>Company</label>
+        <input type="text" id="company" placeholder="Enter company name">
       </div>
-
-      <!-- Hidden input untuk status -->
-      <input type="hidden" name="status" id="status">
-
-      <div class="text-center">
-        <button type="submit" class="confirm-btn">CONFIRM</button>
+      <div class="form-group">
+        <label>Product</label>
+        <input type="text" id="product" placeholder="Enter product name">
       </div>
-    </form>
+      <div class="form-group">
+        <label>Details</label>
+        <textarea id="details" placeholder="Enter details"></textarea>
+      </div>
+    </div>
+
+    <!-- Right: Status -->
+    <div class="status-section">
+      <h3>Status Product</h3>
+      <button class="status-btn red" name="preparation" value="preparation" for="option0">Preparation</button>
+      <button class="status-btn yellow" name="onprocess" value="onprocess" for="option1">On Process</button>
+      <button class="status-btn green" name="finish" value="finish" for="option2">Finish</button>
+
+      <button class="confirm-btn">CONFIRM</button>
+    </div>
   </div>
 
   <script>
     // Pilih semua tombol status
     const statusButtons = document.querySelectorAll('.status-btn');
-    const statusInput = document.getElementById('status');
+    let selectedStatus = null;
 
+    // Tambahkan event listener untuk tiap tombol status
     statusButtons.forEach(button => {
       button.addEventListener('click', () => {
         // Hapus kelas aktif dari semua tombol
         statusButtons.forEach(btn => btn.classList.remove('active'));
         // Tambah kelas aktif ke tombol yang diklik
         button.classList.add('active');
-        // Simpan nilai ke input hidden
-        statusInput.value = button.value;
+        selectedStatus = button.textContent;
       });
     });
 
-    // Validasi sebelum submit
-    document.querySelector('form').addEventListener('submit', function(e) {
+    // Event untuk tombol confirm
+    document.querySelector('.confirm-btn').addEventListener('click', () => {
       const company = document.getElementById('company').value;
       const product = document.getElementById('product').value;
       const details = document.getElementById('details').value;
-      const status = statusInput.value;
 
-      if (!company || !product || !details || !status) {
-        e.preventDefault(); // cegah submit
-        alert("Harap isi semua form dan pilih status produk!");
+      if (!company || !product || !details) {
+        alert("Harap isi semua form sebelum konfirmasi!");
+        return;
       }
+
+      if (!selectedStatus) {
+        alert("Harap pilih status produk terlebih dahulu!");
+        return;
+      }
+
+      alert(
+        "Order Confirmed!\n\n" +
+        "Company: " + company + "\n" +
+        "Product: " + product + "\n" +
+        "Details: " + details + "\n" +
+        "Status: " + selectedStatus
+      );
     });
   </script>
 </body>
