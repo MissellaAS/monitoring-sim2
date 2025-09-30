@@ -1,63 +1,37 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHOW MACHINE MILLING</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="main-container">
+@extends('machines.layout')
 
-        <header class="top-header">
-            <div class="menu-icon">
-                &#9776; </div>
-        </header>
+@section('content')
+<div class="text-center mb-5">
+    <h1 class="fw-bold">SHOW MACHINE</h1>
+    <h2 class="fw-bold">{{ $machine->name }}</h2>
+</div>
 
-        <div class="content-area">
-            
-            <button class="back-button">BACK</button>
+<div class="row text-center mb-4">
+    <div class="col">
+        <h5 class="fw-bold">MACHINE</h5>
+        <p>{{ $machine->name }}</p>
+    </div>
+    <div class="col">
+        <h5 class="fw-bold">CODE</h5>
+        <p>{{ $machine->code }}</p>
+    </div>
+    <div class="col">
+        <h5 class="fw-bold">DETAIL</h5>
+        <p>{{ $machine->detail }}</p>
+    </div>
+</div>
 
-            <h1 class="main-title">SHOW MACHINE <br> MILLING</h1>
+<h5 class="fw-bold mb-3">PRODUCT</h5>
 
-            <div class="machine-details">
-                <div class="detail-column">
-                    <span class="detail-label">MACHINE</span>
-                    <span class="detail-value">MILLING</span>
-                </div>
-                <div class="detail-column">
-                    <span class="detail-label">CODE</span>
-                    <span class="detail-value">BEIJING 1</span>
-                </div>
-                <div class="detail-column">
-                    <span class="detail-label">DETAIL</span>
-                    <span class="detail-value">MILLING</span>
-                </div>
-            </div>
+@foreach ($products as $product)
+    <div class="d-flex justify-content-between align-items-center bg-white rounded-pill px-4 py-2 mb-3 shadow 
+        @if($product['name'] === 'SHAFT') border border-3 border-primary @endif">
+        <span class="fw-semibold">{{ $product['name'] }}</span>
+        <span class="badge bg-primary px-3 py-2">{{ $product['status'] }}</span>
+    </div>
+@endforeach
 
-            <div class="product-section">
-                <h2 class="section-title">PRODUCT</h2>
-                
-                <div class="product-item status-on-process-border">
-                    <span class="product-name">RING</span>
-                    <div class="status-button on-process">ON PROCESS</div>
-                </div>
-
-                <div class="product-item">
-                    <span class="product-name">SHAFT</span>
-                    <div class="status-button finish">FINISH</div>
-                </div>
-
-                <div class="product-item">
-                    <span class="product-name">BOLT</span>
-                    <div class="status-button prepare">PREPARE</div>
-                </div>
-
-                <div class="product-item">
-                    <span class="product-name">POCKET</span>
-                    <div class="status-button on-process">ON PROCESS</div>
-                </div>
-            </div>
-
-        </div> </div> </body>
-</html>
+<div class="text-end mt-4">
+    <a href="{{ route('machines.index') }}" class="btn btn-light fw-bold rounded-pill px-4">BACK</a>
+</div>
+@endsection

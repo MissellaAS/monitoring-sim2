@@ -22,7 +22,10 @@ class MachineController extends Controller
     public function create()
     {
         // arahkan ke file resources/views/machines/create.blade.php
-        return view('machines.create');
+        // return view('machines.create');
+
+        $machines = machine::all();
+        return view('machines.create', compact('machines'));
     }
 
     /**
@@ -50,9 +53,22 @@ class MachineController extends Controller
      * Display the specified resource.
      */
     public function show(Machine $machine)
-    {
-        return view('machines.show', compact('machine'));
-    }
+{
+    // contoh: produk diambil dari relasi
+    // pastikan model Machine punya relasi ->products()
+    $products = [
+        ['name' => 'RING', 'status' => 'ON PROCESS'],
+        ['name' => 'SHAFT', 'status' => 'FINISH'],
+        ['name' => 'BOLT', 'status' => 'PREPARE'],
+        ['name' => 'POCKET', 'status' => 'ON PROCESS'],
+    ];
+
+    // jika sudah ada tabel relasi di DB:
+    // $products = $machine->products;
+
+    return view('machines.show', compact('machine', 'products'));
+}
+
 
     /**
      * Show the form for editing the specified resource.
