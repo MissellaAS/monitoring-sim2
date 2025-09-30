@@ -2,13 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-<<<<<<< HEAD
-use App\Http\Controllers\MachineController;
-use App\Http\Controllers\ProductCustomerController;
-=======
 use App\Http\Controllers\MachineController; // <-- betulkan nama controller
 use App\Http\Controllers\OrderController;
->>>>>>> baddb4984722d94ff0cf9a4ca77334604c7d8d7f
 
 /*
 |--------------------------------------------------------------------------
