@@ -23,7 +23,11 @@ Route::get('/', function () {
 // Resource untuk produk (CRUD)
 Route::resource('products', ProductController::class);
 
-// Resource untuk mesin (CRUD)
+Route::resource('machines', MachineController::class);
+Route::get('/order', function () {
+    return view('order');
+});
+
 Route::resource('machines', MachineController::class);
 
 // Resource untuk orders (CRUD)
