@@ -151,7 +151,7 @@
         @foreach($machines as $machine)
         <tr>
           <td>{{ $machine->id }}</td>
-          <td>{{ $machine->name }}</td>
+          <td>{{ $machine->machine }}</td>
           <td>{{ $machine->code }}</td>
           <td>{{ $machine->detail }}</td>
           <td>
