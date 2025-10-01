@@ -8,7 +8,7 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #0e6aa8;
+            background-color: #13729a;
             color: white;
         }
 
@@ -30,7 +30,7 @@
         }
 
         .btn-back {
-            background-color: #2ea8ff;
+            background-color: #13729a;
             color: white;
             padding: 8px 20px;
             border-radius: 15px;
@@ -46,7 +46,7 @@
         }
 
         .form-box {
-            background-color: #0e6aa8;
+            background-color: #13729a;
             border: 2px solid black;
             padding: 20px;
             border-radius: 5px;

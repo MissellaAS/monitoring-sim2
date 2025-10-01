@@ -78,8 +78,8 @@
 
     <div class="nav-links" id="menu">
         <a href="{{ url('/products') }}">Home</a>
-        <a href="#">Product Customer</a>
-        <a href="#">Production Monitoring</a>
+        <a href="{{ route('products.create') }}">Product Customer</a>
+        <a href="{{ route('machines.index') }}">Production Monitoring</a>
     </div>
 
     <script>

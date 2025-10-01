@@ -183,8 +183,7 @@
 
   <div class="nav-links" id="menu">
     <a href="{{ url('/products') }}">Home</a>
-    <a href="#">Product Customer</a>
-    <a href="#">Production Monitoring</a>
+    <a href="{{ route('products.create') }}">Production Monitoring</a>
     <a href="{{ route('machines.index') }}">Machine Monitoring</a>
   </div>
 
