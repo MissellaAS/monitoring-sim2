@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
-
 class OrderController extends Controller
 {
     /**
@@ -38,20 +37,24 @@ class OrderController extends Controller
             'status' => 'required|string|max:255',
         ]);
 
-        Order::create($request->all());
+        Order::create([
+            'order_number' => $request->order_number,
+            'customer_name' => $request->customer_name,
+            'product' => $request->product,
+            'quantity' => $request->quantity,
+            'status' => $request->status,
+        ]);
 
         return redirect()->route('orders.index')
                          ->with('success', 'Order created successfully.');
     }
-
     /**
      * Display the specified resource.
      */
     public function show(Order $order)
     {
         return view('orders.show', compact('order'));
-    }
-
+    }       
     /**
      * Show the form for editing the specified resource.
      */
@@ -73,20 +76,25 @@ class OrderController extends Controller
             'status' => 'required|string|max:255',
         ]);
 
-        $order->update($request->all());
-
+        $order->update([
+            'order_number' => $request->order_number,
+            'customer_name' => $request->customer_name,
+            'product' => $request->product,
+            'quantity' => $request->quantity,
+            'status' => $request->status,
+        ]);
         return redirect()->route('orders.index')
                          ->with('success', 'Order updated successfully.');
     }
-
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Order $order)
     {
         $order->delete();
-
         return redirect()->route('orders.index')
                          ->with('success', 'Order deleted successfully.');
     }
 }
+
+
