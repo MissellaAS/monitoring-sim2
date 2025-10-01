@@ -9,7 +9,7 @@
 <div class="row text-center mb-4 fw-bold">
     <div class="col">
         <h5>MACHINE</h5>
-        <p>{{ $machine->name }}</p>
+        <p>{{ $machine->machine }}</p>
     </div>
     <div class="col">
         <h5>CODE MACHINE</h5>
@@ -23,24 +23,21 @@
 
 <h5 class="fw-bold mb-3">PRODUCT</h5>
 
-@forelse ($products as $product)
+@foreach ($products as $product)
     <div class="d-flex justify-content-between align-items-center bg-white rounded-pill px-4 py-2 mb-3 shadow-sm 
-        @if($product['name'] === 'SHAFT') border border-3 border-primary @endif">
-        <span class="fw-bold">{{ strtoupper($product['name']) }}</span>
+        @if($product['product'] === 'SHAFT') border border-3 border-primary @endif">
+        <span class="fw-bold">{{ strtoupper($product->product) }}</span>
 
+        <!-- product['status'] === 'ON PROCESS' -->
         @if($product['status'] === 'ON PROCESS')
-            <span class="badge rounded-pill px-4 py-2 bg-info text-dark fw-bold">ON PROCESS</span>
+            <span class="badge bg-success">{{ $product['status'] }}</span>
         @elseif($product['status'] === 'FINISH')
-            <span class="badge rounded-pill px-4 py-2 bg-primary fw-bold">FINISH</span>
-        @elseif($product['status'] === 'PREPARE')
-            <span class="badge rounded-pill px-4 py-2 bg-warning text-dark fw-bold">PREPARE</span>
+            <span class="badge bg-danger">{{ $product['status'] }}</span>
         @else
-            <span class="badge rounded-pill px-4 py-2 bg-secondary">UNKNOWN</span>
+            <span class="badge bg-warning text-dark">{{ $product['status'] }}</span>
         @endif
     </div>
-@empty
-    <p class="text-muted">No products found for this machine.</p>
-@endforelse
+@endforeach
 
 <div class="text-end mt-4">
     <a href="{{ route('machines.index') }}" class="btn btn-light fw-bold rounded-pill px-4">BACK</a>

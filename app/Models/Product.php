@@ -14,4 +14,8 @@ class Product extends Model
         'detail',
         'status',
     ];
-}
+    public function definition(): array {
+    return $this->belongsTo(Machine::class);
+}}
+
+

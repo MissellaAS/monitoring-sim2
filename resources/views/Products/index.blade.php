@@ -10,7 +10,7 @@
 
     @foreach ($products as $product)
     <tr>
-        <td>{{ ++$i }}</td>
+        <td>{{ $loop->iteration }}</td>
         <td>{{ $product->machine->company }}</td>
         <td>{{ $product->product }}</td>
         <td>{{ $product->detail }}</td>

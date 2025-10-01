@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Machine;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class MachineController extends Controller
@@ -21,16 +22,7 @@ class MachineController extends Controller
      */
     public function create()
     {
-    //         $products = [
-    //     ['name' => 'RING', 'status' => 'ON PROCESS'],
-    //     ['name' => 'SHAFT', 'status' => 'FINISH'],
-    //     ['name' => 'BOLT', 'status' => 'PREPARE'],
-    //     ['name' => 'POCKET', 'status' => 'ON PROCESS'],
-    // ];
-        // arahkan ke file resources/views/machines/create.blade.php
-        // return view('machines.show', compact('products'));
-
-        $machines = machine::all();
+        $machines = Machine::all();
         return view('machines.create', compact('machines'));
     }
 
@@ -60,18 +52,7 @@ class MachineController extends Controller
      */
     public function show(Machine $machine)
 {
-    // contoh: produk diambil dari relasi
-    // pastikan model Machine punya relasi ->products()
-    $products = [
-        ['name' => 'RING', 'status' => 'ON PROCESS'],
-        ['name' => 'SHAFT', 'status' => 'FINISH'],
-        ['name' => 'BOLT', 'status' => 'PREPARE'],
-        ['name' => 'POCKET', 'status' => 'ON PROCESS'],
-    ];
-
-    // jika sudah ada tabel relasi di DB:
-    // $products = $machine->products;
-
+    $products = Product::all(); // ambil produk yang terkait dengan machine ini
     return view('machines.show', compact('machine', 'products'));
 }
 
