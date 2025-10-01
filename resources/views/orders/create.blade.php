@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <title>ADD NEW PRODUCTION</title>
-  
-
-  <title>Order List</title>
+  <title>ORDER FORM</title>
   <style>
     body {
       margin: 0;
@@ -126,9 +123,7 @@
       opacity: 0.9;
       transform: scale(1.05);
     }
-    .red { background-color: #e74c3c; color: white; }
-    .yellow { background-color: #f1c40f; color: #000; }
-    .green { background-color: #2ecc71; color: white; }
+    
 
     /* Status aktif */
     .active {
@@ -136,8 +131,9 @@
     }
 
     /* Confirm Button */
-    .confirm-btn {
-      margin-top: 40px;
+    .submit-btn {
+      margin: 40px auto 0 auto;
+      display: block;
       padding: 12px 40px;
       background-color: #fff;
       color: #000;
@@ -146,15 +142,38 @@
       font-weight: bold;
       cursor: pointer;
       transition: 0.2s;
+      justify-content: center;
+      
+      
     }
-    .confirm-btn:hover {
+    .submit-btn:hover {
       background-color: #ddd;
     }
     .pull-right {
       margin: 10px 0;
       text-align: left;
     }
+
+    .btn {
+    transition: all 0.2s ease-in-out;
+    margin-right: 10px;
+    }
+
+    .btn-check:checked + .btn {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    font-weight: bold;
+    border: 2px solid #000;
+    }
+
+    .form-label{
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+    }
   </style>
+
+
 </head>
 <body>
   <!-- Navbar -->
@@ -180,10 +199,7 @@
   <div class="container">
     <!-- Left: Form -->
     <div class="form-section">
-      <h2>Order List</h2>
-      <div class="pull-right">
-        <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
-      </div>
+      <h2>ORDER FORM</h2>
     </div>
 
 <form action="{{ route('products.store') }}" method="POST">
@@ -204,57 +220,20 @@
       </div>
     </div>
 
-    <!-- Right: Status -->
-    <div class="status-section">
-      <h3>Status Product</h3>
-      <button class="status-btn red" name="preparation" value="preparation" for="option0">Preparation</button>
-      <button class="status-btn yellow" name="onprocess" value="onprocess" for="option1">On Process</button>
-      <button class="status-btn green" name="finish" value="finish" for="option2">Finish</button>
+  <!--Checkbox Pilihan Status-->
+    <legend for="pilihan-lomba" class="form-label">Status Product</legend>
+    <input type="radio" class="btn-check" name="status" value="Preparation" id="success-outlined" autocomplete="off">
+    <label class="btn btn-primary" for="success-outlined">Preparation</label>
 
-      <button class="confirm-btn">CONFIRM</button>
+    <input type="radio" class="btn-check" name="status"  value="Onprocess" id="option0" autocomplete="off">
+    <label class="btn btn-warning" for="option0">On Process</label>
+    
+    <input type="radio" class="btn-check" name="status" value="Finish" id="option1" autocomplete="off">
+    <label class="btn btn-success" for="option1">Finish</label>
+
+    <div class="submit">
+      <button type="submit" class="submit-btn">SUBMIT</button>
     </div>
-  </div>
 
-  <script>
-    // Pilih semua tombol status
-    const statusButtons = document.querySelectorAll('.status-btn');
-    let selectedStatus = null;
-
-    // Tambahkan event listener untuk tiap tombol status
-    statusButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Hapus kelas aktif dari semua tombol
-        statusButtons.forEach(btn => btn.classList.remove('active'));
-        // Tambah kelas aktif ke tombol yang diklik
-        button.classList.add('active');
-        selectedStatus = button.textContent;
-      });
-    });
-
-    // Event untuk tombol confirm
-    document.querySelector('.confirm-btn').addEventListener('click', () => {
-      const company = document.getElementById('company').value;
-      const product = document.getElementById('product').value;
-      const details = document.getElementById('details').value;
-
-      if (!company || !product || !details) {
-        alert("Harap isi semua form sebelum konfirmasi!");
-        return;
-      }
-
-      if (!selectedStatus) {
-        alert("Harap pilih status produk terlebih dahulu!");
-        return;
-      }
-
-      alert(
-        "Order Confirmed!\n\n" +
-        "Company: " + company + "\n" +
-        "Product: " + product + "\n" +
-        "Details: " + details + "\n" +
-        "Status: " + selectedStatus
-      );
-    });
-  </script>
 </body>
 </html>

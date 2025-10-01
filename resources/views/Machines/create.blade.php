@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Add New Machine</title>
     <style>
         body {
@@ -69,8 +73,21 @@
 <body>
     <!-- Navbar hitam dengan icon -->
     <div class="navbar">
-        <i>&#9776;</i>
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
     </div>
+
+    <div class="nav-links" id="menu">
+        <a href="{{ url('/products') }}">Home</a>
+        <a href="#">Product Customer</a>
+        <a href="#">Production Monitoring</a>
+    </div>
+
+    <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+    </script>
 
     <!-- Box utama -->
     <div class="container">
