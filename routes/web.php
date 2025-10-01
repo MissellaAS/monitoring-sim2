@@ -27,8 +27,6 @@ Route::get('/order', function () {
     return view('order');
 });
 
-Route::get('/product-customer', [ProductCustomerController::class, 'index'])->name('product-customer.index');
-
 Route::resource('machines', MachineController::class);
 
 Route::resource('orders', OrderController::class);

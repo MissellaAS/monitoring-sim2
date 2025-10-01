@@ -1,216 +1,173 @@
-<!DOCTYPE html>
-<html lang="en">
+ <!DOCTYPE html>
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Order List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <title>ADD NEW PRODUCTION</title>
+
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #13729a;
       color: #000;
+    }
+
+    .navbar {
+      background-color: #000;
+      color: #fff;
+      padding: 5px;
       
     }
 
-    /* Navbar */
-    .navbar {
-      background-color: #000;
-      padding: 10px 15px;
-    }
     .menu-icon {
-      font-size: 25px;
-      color: #fff;
+      font-size: 24px;
       cursor: pointer;
+      margin-left: 5px;
     }
 
-    /* Container */
-    .container {
-      display: left;
-      justify-content: space-between;
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background-color: #000;
       padding: 10px;
     }
 
-    /* Left Section */
-    .form-section {
-      flex: 1;
-      margin-right: 50px;
-      background-color: #13729a;
-      padding: 30px;
-      border-radius: 15px;
-      text-align: right;
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 0;
     }
 
-    .form-section h2 {
+    .container {
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 32px;
       font-weight: bold;
-      margin-bottom: 25px;
-      color: #000;
+      text-transform: uppercase;
       text-align: left;
-      padding-left: 70px;
-      
+      padding-top: 20px;
+    }
+
+    .btn-back {
+      margin: 10px 0;
+      text-align: left;
 
     }
+
+    .btn-back a {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 30px;
+      background-color: white;
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .form-section {
+      margin: 20px auto;
+      max-width: 1200px;
+      text-align: left;
+    }
+
     .form-group {
       margin-bottom: 20px;
-      text-align: left;
-      padding-left: 100px;
-      width: 50%;
+      width: 100%;
     }
+
     label {
-      display: block;
-      margin-bottom: 8px;
       font-weight: bold;
-      color: #fff;
+      display: block;
+      margin-bottom: 5px;
     }
-    input, textarea {
-      width: 80%;
-      padding: 12px;
+
+    input, select {
+      width: 100%;
+      padding: 10px;
       border-radius: 10px;
-      border: none;
-      font-size: 14px;
-    }
-    textarea {
-      height: 120px;
-      resize: none;
+      border: 1px solid #ccc;
     }
 
-    /* Right Section */
-    .status-section {
-      width: 250px;
+    button {
+      padding: 12px 30px;
+      border-radius: 30px;
+      border: none;
+      background-color: #3ab4ff;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submit {
       text-align: center;
-      padding: 30px;
-
-    }
-    .status-section h3 {
-      margin-bottom: 25px;
-      font-weight: bold;
-      color: #000;
-    }
-    .status-btn {
-      display: block;
-      margin: 15px auto;
-      padding: 12px 35px;
-      border-radius: 25px;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s;
-      width: 146px;
-    }
-    .status-btn:hover {
-      opacity: 0.9;
-      transform: scale(1.05);
-    }
-    .red { background-color: #e74c3c; color: white; }
-    .yellow { background-color: #f1c40f; color: #000; }
-    .green { background-color: #2ecc71; color: white; }
-
-    /* Status aktif */
-    .active {
-      outline: 3px solid #000;
-    }
-
-    /* Confirm Button */
-    .confirm-btn {
       margin-top: 40px;
-      padding: 12px 40px;
-      background-color: #fff;
-      color: #000;
-      border-radius: 25px;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .confirm-btn:hover {
-      background-color: #ddd;
     }
   </style>
 </head>
+
 <body>
-  <!-- Navbar -->
+  {{-- Nav bar --}}
   <div class="navbar">
-    <span class="menu-icon">&#9776;</span>
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
   </div>
 
-  <!-- Content -->
+  <div class="nav-links" id="menu">
+    <a href="{{ url('/products') }}">Home</a>
+    <a href="{{ route('orders.create') }}">Order List</a>
+    <a href="#">Product Customer</a>
+    <a href="#">Production Monitoring</a>
+    <a href="{{ route('machines.index') }}">Machine Monitoring</a>
+  </div>
+
+  {{-- Form --}}
   <div class="container">
-    <!-- Left: Form -->
+    <h2>ADD NEW PRODUCTION</h2>
+
+    <div class="btn-back">
+      <a href="{{ route('products.index') }}">BACK</a>
+    </div>
+
     <div class="form-section">
-      <h2>Order List</h2>
-      <div class="pull-right">
-        <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
-      </div>
-    </div>
+      <form action="{{ route('products.store') }}" method="POST">
+        @csrf
 
-<form action="{{ route('products.store') }}" method="POST">
-    @csrf
+        <div class="form-group">
+          <label for="company">Machine</label>
+          <select name="machine_id" class="form-control">
+            <option value="">Select Machine</option>
+            @foreach($machines as $machine)
+            <option value="{{ $machine_id }}">{{  $machine->name }}</option>
+            @endforeach
+          </select>
+        </div>
 
-    <div> 
-      <div class="form-group">
-        <label>Company</label>
-        <input type="text" id="company" placeholder="Enter company name">
-      </div>
-      <div class="form-group">
-        <label>Product</label>
-        <input type="text" id="product" placeholder="Enter product name">
-      </div>
-      <div class="form-group">
-        <label>Details</label>
-        <textarea id="details" placeholder="Enter details"></textarea>
-      </div>
-    </div>
-
-    <!-- Right: Status -->
-    <div class="status-section col-md-4 right">
-      <h3>Status Product</h3>
-      <button class="status-btn red" name="preparation" value="preparation" for="option0">Preparation</button>
-      <button class="status-btn yellow" name="onprocess" value="onprocess" for="option1">On Process</button>
-      <button class="status-btn green" name="finish" value="finish" for="option2">Finish</button>
-
-      <button class="confirm-btn">CONFIRM</button>
+        <div class="form-group">
+          <label for="product">Product</label>
+          <select name="product_id" class="form-control">
+            <option value="">Select Product</option>
+            @foreach($products as $product)
+            <option value="{{ $product->id }}">{{  $product->name }}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class=submit>
+          <button type="submit">SUBMIT</button>
+        </div>
+      </form>
     </div>
   </div>
 
   <script>
-    // Pilih semua tombol status
-    const statusButtons = document.querySelectorAll('.status-btn');
-    let selectedStatus = null;
-
-    // Tambahkan event listener untuk tiap tombol status
-    statusButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Hapus kelas aktif dari semua tombol
-        statusButtons.forEach(btn => btn.classList.remove('active'));
-        // Tambah kelas aktif ke tombol yang diklik
-        button.classList.add('active');
-        selectedStatus = button.textContent;
-      });
-    });
-
-    // Event untuk tombol confirm
-    document.querySelector('.confirm-btn').addEventListener('click', () => {
-      const company = document.getElementById('company').value;
-      const product = document.getElementById('product').value;
-      const details = document.getElementById('details').value;
-
-      if (!company || !product || !details) {
-        alert("Harap isi semua form sebelum konfirmasi!");
-        return;
-      }
-
-      if (!selectedStatus) {
-        alert("Harap pilih status produk terlebih dahulu!");
-        return;
-      }
-
-      alert(
-        "Order Confirmed!\n\n" +
-        "Company: " + company + "\n" +
-        "Product: " + product + "\n" +
-        "Details: " + details + "\n" +
-        "Status: " + selectedStatus
-      );
-    });
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
   </script>
 </body>
-</html>
+</html> 
