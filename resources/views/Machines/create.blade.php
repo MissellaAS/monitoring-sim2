@@ -79,8 +79,6 @@
         <i>&#9776;</i>
     </div>
 
-<<<<<<< HEAD
-=======
     <div class="nav-links" id="menu">
         <a href="{{ url('/products') }}">Home</a>
         <a href="{{ route('products.create') }}">Product Customer</a>
@@ -94,7 +92,6 @@
     }
     </script>
 
->>>>>>> 617facd1a70a4ce30154d716a99354d710cb8648
     <!-- Box utama -->
     <div class="container">
         <a href="{{ route('machines.index') }}" class="btn-back">BACK</a>
