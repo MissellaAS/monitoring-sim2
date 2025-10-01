@@ -1,24 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Machines Monitoring</title>
-    <style>
-        body {
-            background-color: #0b77a5;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: black;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+  <title>Machines Monitoring</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #13729a;
+      color: #000;
+    }
 
-        /* Header Title */
-        .header {
-            text-align: center;
-            padding: 20px;
-            font-weight: bold;
-            font-size: 28px;
-            color: white;
-        }
+    /* Navbar */
+    .navbar {
+      background-color: #000;
+      color: #fff;
+      padding: 10px;
+    }
+    .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 20px;
+    }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background-color: #000;
+      padding: 10px;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 0;
+    }
 
         /* Top action bar */
         .top-bar {
@@ -132,6 +149,7 @@
     </style>
 </head>
 <body>
+<<<<<<< HEAD
 
     <!-- Header -->
     <div class="header">MACHINES MONITORING</div>
@@ -140,6 +158,33 @@
     <div class="top-bar">
         <a href="{{ route('machines.create') }}" class="btn btn-add">+ Add New Machine</a>
         <a href="/" class="btn btn-back">Back</a>
+=======
+  <!-- Navbar -->
+  <div class="navbar">
+    <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+  </div>
+
+  <div class="nav-links" id="menu">
+    <a href="{{ url('/products') }}">Home</a>
+    <a href="{{ route('orders.create') }}">Order List</a>
+    <a href="#">Product Customer</a>
+    <a href="#">Production Monitoring</a>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+  </script>
+
+
+  <!-- Content -->
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>MACHINES MONITORING</h2>
+      <a href="{{ url('/products') }}" class="btn btn-back">BACK</a>
+>>>>>>> 0b50313b0b23c7561ca702a4c19f919dc3fa5009
     </div>
 
     <!-- Success message -->
@@ -153,12 +198,21 @@
     <table>
     <thead>
         <tr>
+<<<<<<< HEAD
             <th>ID</th>
             <th>Machine</th>
             <th>Code</th>
             <th>Detail</th>
             <th>Status</th>
             <th>Action</th>
+=======
+          <th>ID</th>
+          <th>MACHINE</th>
+          <th>CODE MACHINE</th>
+          <th>DETAIL</th>
+          <th>STATUS</th>
+          <th>ACTION</th>
+>>>>>>> 0b50313b0b23c7561ca702a4c19f919dc3fa5009
         </tr>
     </thead>
     <tbody>
