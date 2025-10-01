@@ -112,7 +112,7 @@
   </div>
 
   <div class="nav-links" id="menu">
-    <a href="{{ url('/products') }}">Home</a>
+    <a href="{{ url('/productions') }}">Home</a>
     <a href="{{ route('orders.create') }}">Order List</a>
     <a href="#">Product Customer</a>
     <a href="#">Production Monitoring</a>
@@ -130,7 +130,7 @@
   <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
       <h2>MACHINES MONITORING</h2>
-      <a href="{{ url('/products') }}" class="btn btn-back">BACK</a>
+      <a href="{{ url('/productions') }}" class="btn btn-back">BACK</a>
     </div>
 
     <div class="mb-3">
