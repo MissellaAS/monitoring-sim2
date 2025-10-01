@@ -41,13 +41,13 @@ class MachineController extends Controller
     {
         $request->validate([
             'machine' => 'required|string|max:255',
-            'code_machine' => 'required|string|max:255',
+            'code' => 'required|string|max:255',
             'detail' => 'nullable|string',
         ]);
 
         Machine::create([
             'machine' => $request->machine,
-            'code_machine' => $request->code_machine,
+            'code' => $request->code,
             'detail' => $request->detail,
         ]);
 
@@ -91,7 +91,7 @@ class MachineController extends Controller
     {
         $request->validate([
             'machine' => 'required|string|max:255',
-            'code_machine' => 'required|string|max:255',
+            'code' => 'required|string|max:255',
             'detail' => 'nullable|string',
         ]);
 
