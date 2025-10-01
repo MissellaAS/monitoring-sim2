@@ -145,7 +145,6 @@
           <th>CODE MACHINE</th>
           <th>DETAIL</th>
           <th>STATUS</th>
-          <th>ACTION</th>
         </tr>
       </thead>
       <tbody>
@@ -163,11 +162,6 @@
               @method('DELETE')
               <button type="submit" class="btn btn-custom btn-delete">DELETE</button>
             </form>
-          </td>
-          <td>
-            <button class="btn btn-status status-prep">PREPARATION</button>
-            <button class="btn btn-status status-process">ON PROCESS</button>
-            <button class="btn btn-status status-finish">FINISH</button>
           </td>
         </tr>
         @endforeach
