@@ -42,8 +42,6 @@
 
     /* Container */
     .container {
-<<<<<<< HEAD
-=======
       max-width: 960px; 
       width: 90%;        
       margin: 50px auto;
@@ -66,7 +64,6 @@
       justify-content: space-between;
       align-items: flex-start;
       gap: 50px;
->>>>>>> 0b50313b0b23c7561ca702a4c19f919dc3fa5009
       display: flex;
       justify-content: space-between;
       padding: 40px;
@@ -237,52 +234,5 @@
     <div class="submit">
       <button type="submit" class="submit-btn">SUBMIT</button>
     </div>
-<<<<<<< HEAD
-  </div>
-
-  <script>
-    // Pilih semua tombol status
-    const statusButtons = document.querySelectorAll('.status-btn');
-    let selectedStatus = null;
-
-    // Tambahkan event listener untuk tiap tombol status
-    statusButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Hapus kelas aktif dari semua tombol
-        statusButtons.forEach(btn => btn.classList.remove('active'));
-        // Tambah kelas aktif ke tombol yang diklik
-        button.classList.add('active');
-        selectedStatus = button.textContent;
-      });
-    });
-
-    // Event untuk tombol confirm
-    document.querySelector('.confirm-btn').addEventListener('click', () => {
-      const company = document.getElementById('company').value;
-      const product = document.getElementById('product').value;
-      const details = document.getElementById('details').value;
-
-      if (!company || !product || !details) {
-        alert("Harap isi semua form sebelum konfirmasi!");
-        return;
-      }
-
-      if (!selectedStatus) {
-        alert("Harap pilih status produk terlebih dahulu!");
-        return;
-      }
-
-      alert(
-        "Order Confirmed!\n\n" +
-        "Company: " + company + "\n" +
-        "Product: " + product + "\n" +
-        "Details: " + details + "\n" +
-        "Status: " + selectedStatus
-      );
-    });
-  </script>
-=======
-
->>>>>>> 0b50313b0b23c7561ca702a4c19f919dc3fa5009
 </body>
 </html>

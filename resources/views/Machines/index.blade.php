@@ -149,17 +149,7 @@
     </style>
 </head>
 <body>
-<<<<<<< HEAD
-
-    <!-- Header -->
-    <div class="header">MACHINES MONITORING</div>
-
-    <!-- Top bar with buttons -->
-    <div class="top-bar">
-        <a href="{{ route('machines.create') }}" class="btn btn-add">+ Add New Machine</a>
-        <a href="/" class="btn btn-back">Back</a>
-=======
-  <!-- Navbar -->
+      <!-- Navbar -->
   <div class="navbar">
     <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
   </div>
@@ -179,12 +169,17 @@
   </script>
 
 
+
+    <!-- Top bar with buttons -->
+    <div class="top-bar">
+        <a href="{{ route('machines.create') }}" class="btn btn-add">+ Add New Machine</a>
+
+
   <!-- Content -->
   <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
       <h2>MACHINES MONITORING</h2>
       <a href="{{ url('/products') }}" class="btn btn-back">BACK</a>
->>>>>>> 0b50313b0b23c7561ca702a4c19f919dc3fa5009
     </div>
 
     <!-- Success message -->
@@ -198,21 +193,12 @@
     <table>
     <thead>
         <tr>
-<<<<<<< HEAD
             <th>ID</th>
             <th>Machine</th>
             <th>Code</th>
             <th>Detail</th>
             <th>Status</th>
             <th>Action</th>
-=======
-          <th>ID</th>
-          <th>MACHINE</th>
-          <th>CODE MACHINE</th>
-          <th>DETAIL</th>
-          <th>STATUS</th>
-          <th>ACTION</th>
->>>>>>> 0b50313b0b23c7561ca702a4c19f919dc3fa5009
         </tr>
     </thead>
     <tbody>
