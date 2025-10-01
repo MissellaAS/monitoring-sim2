@@ -5,13 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Production extends Model
 {
     use HasFactory;
     protected $fillable= [
-        'company',
+         'company',
+        'machine',
         'product',
         'detail',
         'status',
     ];
+    public function machine()
+    {
+        return $this->belongsTo(Machine::class);
+    }
+    
 }

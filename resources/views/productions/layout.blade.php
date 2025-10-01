@@ -18,7 +18,7 @@
     <a href="#">Home</a>
     <a href="{{ route('orders.index') }}">Order List</a>
     <a href="#">Product Customer</a>
-    <a href="#">Production Monitoring</a>
+    <a href="{{ route('productions.tabel')}}">Production Monitoring</a>
     <a href="{{ route('machines.index') }}">Machine Monitoring</a>
   </div>
   <script >
@@ -60,7 +60,7 @@
 </script>
 
 <main>
-  @yield('sectiom')
+  @yield('section')
 </main>
 
 </body>
