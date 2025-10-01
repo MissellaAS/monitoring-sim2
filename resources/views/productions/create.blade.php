@@ -13,13 +13,14 @@
       font-family: Arial, sans-serif;
       background-color: #13729a;
       color: #000;
+
     }
 
     .navbar {
       background-color: #000;
       color: #fff;
       padding: 5px;
-      
+
     }
 
     .menu-icon {
@@ -118,7 +119,7 @@
   </div>
 
   <div class="nav-links" id="menu">
-    <a href="{{ url('/products') }}">Home</a>
+    <a href="{{ url('/productions') }}">Home</a>
     <a href="{{ route('orders.create') }}">Order List</a>
     <a href="{{ route('products.create') }}">Production Monitoring</a>
     <a href="{{ route('machines.index') }}">Machine Monitoring</a>
@@ -129,11 +130,11 @@
     <h2>ADD NEW PRODUCTION</h2>
 
     <div class="btn-back">
-      <a href="{{ route('products.index') }}">BACK</a>
+      <a href="{{ route('productions.index') }}">BACK</a>
     </div>
 
     <div class="form-section">
-      <form action="{{ route('products.store') }}" method="POST">
+      <form action="{{ route('productions.store') }}" method="POST">
         @csrf
 
         <div class="form-group">
@@ -147,8 +148,8 @@
         </div>
 
         <div class="form-group">
-          <label for="product">Product</label>
-          <select name="product_id" class="form-control">
+          <label for="productions">Product</label>
+          <select name="productions_id" class="form-control">
             <option value="">Select Product</option>
             @foreach($products as $product)
             <option value="{{ $product->id }}">{{  $product->name }}</option>

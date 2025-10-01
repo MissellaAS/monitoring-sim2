@@ -20,6 +20,7 @@ class OrderController extends Controller
      */
     public function create()
     {
+        $orders = Order::all();
         return view('orders.create');
     }
 
