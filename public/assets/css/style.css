@@ -165,3 +165,14 @@ body {
     font-size: 12px;
 }
 
+/* STYLE UNTUK SHOW */
+body {
+    background-color: #1574a4; /* biru sama kayak di screenshot */
+    color: #000;
+}
+
+.badge {
+    font-size: 0.9rem;
+}
+
+
