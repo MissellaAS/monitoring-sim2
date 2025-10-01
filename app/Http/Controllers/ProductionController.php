@@ -14,6 +14,7 @@ class ProductionController extends Controller
 
     public function create()
     {
+        
         return view('productions.create');
     }
 
