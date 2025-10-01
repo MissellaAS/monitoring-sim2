@@ -38,6 +38,10 @@
             font-weight: bold;
         }
 
+        .btn-back:hover {
+            background-color: #007acc;
+        }
+
         /* Box form */
         .edit-form {
             display: flex;
@@ -92,16 +96,20 @@
             <a href="{{ route('machines.index') }}" class="btn-back">BACK</a>
         </div>
 
-        <form class="edit-form">
+        <!-- Form Update -->
+        <form action="{{ route('machines.update', $machine->id) }}" method="POST" class="edit-form">
+            @csrf
+            @method('PUT')
+
             <div class="form-box">
                 <label for="machine">Machine</label>
-                <input type="text" id="machine" name="machine" placeholder="Enter Machine">
+                <input type="text" id="machine" name="machine" value="{{ $machine->machine }}" required>
 
                 <label for="code">Code Machine</label>
-                <input type="text" id="code" name="code" placeholder="Enter Code">
+                <input type="text" id="code" name="code" value="{{ $machine->code }}" required>
 
                 <label for="detail">Detail</label>
-                <input type="text" id="detail" name="detail" placeholder="Enter Detail">
+                <input type="text" id="detail" name="detail" value="{{ $machine->detail }}" required>
             </div>
 
             <button type="submit" class="btn-update">UPDATE</button>
