@@ -8,28 +8,22 @@ return new class extends Migration
 {
     public function up(): void
     {
-<<<<<<<< HEAD:database/migrations/2025_10_01_042806_create_orders_table.php
         Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-========
-        Schema::create('productions', function (Blueprint $table) {
             $table->id();
             $table->string('company');
             $table->string('machine');
             $table->string('product');
             $table->text('detail')->nullable();
             $table->enum('status', ['Preparation', 'On Process', 'Finish'])->default('Preparation');
->>>>>>>> afac5fe97068639ce73e2d13aeaf20d329a21a9b:database/migrations/2025_09_24_032024_create_productions_table.php
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-<<<<<<<< HEAD:database/migrations/2025_10_01_042806_create_orders_table.php
+
         Schema::dropIfExists('orders');
-========
-        Schema::dropIfExists('productions');
->>>>>>>> afac5fe97068639ce73e2d13aeaf20d329a21a9b:database/migrations/2025_09_24_032024_create_productions_table.php
     }
+
+        
 };
