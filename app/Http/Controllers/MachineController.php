@@ -21,8 +21,14 @@ class MachineController extends Controller
      */
     public function create()
     {
+    //         $products = [
+    //     ['name' => 'RING', 'status' => 'ON PROCESS'],
+    //     ['name' => 'SHAFT', 'status' => 'FINISH'],
+    //     ['name' => 'BOLT', 'status' => 'PREPARE'],
+    //     ['name' => 'POCKET', 'status' => 'ON PROCESS'],
+    // ];
         // arahkan ke file resources/views/machines/create.blade.php
-        // return view('machines.create');
+        // return view('machines.show', compact('products'));
 
         $machines = machine::all();
         return view('machines.create', compact('machines'));
@@ -33,19 +39,17 @@ class MachineController extends Controller
      */
    public function store(Request $request)
     {
-    $request->validate([
-        'machine' => 'required',
-        'code' => 'required',
-        'detail' => 'required',
-        'status' => 'required'
-    ]);
+        $request->validate([
+            'machine' => 'required|string|max:255',
+            'code' => 'required|string|max:255',
+            'detail' => 'nullable|string',
+        ]);
 
-    Machine::create([
-        'machine' => $request->machine,
-        'code' => $request->code,
-        'detail' => $request->detail,
-        'status' => $request->status
-    ]);
+        Machine::create([
+            'machine' => $request->machine,
+            'code' => $request->code,
+            'detail' => $request->detail,
+        ]);
 
     return redirect()->route('machines.index')->with('success', 'Machine added successfully!');
     }
@@ -88,7 +92,7 @@ class MachineController extends Controller
     {
         $request->validate([
             'machine' => 'required|string|max:255',
-            'code_machine' => 'required|string|max:255',
+            'code' => 'required|string|max:255',
             'detail' => 'nullable|string',
         ]);
 

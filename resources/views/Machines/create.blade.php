@@ -107,8 +107,7 @@
             <label>Machine</label>
             <input type="text" name="machine" required>
 
-            <label>Code</label>
-            <!-- GANTI code_machine -> code -->
+            <label>Code Machine</label>
             <input type="text" name="code" required>
 
             <label>Detail</label>

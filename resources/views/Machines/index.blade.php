@@ -193,49 +193,33 @@
     <table>
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Machine</th>
-            <th>Code</th>
-            <th>Detail</th>
-            <th>Status</th>
-            <th>Action</th>
+          <th>ID</th>
+          <th>MACHINE</th>
+          <th>CODE MACHINE</th>
+          <th>DETAIL</th>
+          <th>STATUS</th>
         </tr>
-    </thead>
-    <tbody>
-        @forelse($machines as $machine)
-            <tr>
-                <td>{{ $machine->id }}</td>
-                <td>{{ $machine->machine }}</td>
-                <td>{{ $machine->code }}</td>
-                <td>{{ $machine->detail }}</td>
-                <td>
-                    @if($machine->status == 'Preparation')
-                        <span style="color: blue; font-weight: bold;">Preparation</span>
-                    @elseif($machine->status == 'On Process')
-                        <span style="color: orange; font-weight: bold;">On Process</span>
-                    @elseif($machine->status == 'Finish')
-                        <span style="color: green; font-weight: bold;">Finish</span>
-                    @else
-                        <span>-</span>
-                    @endif
-                </td>
-                <td>
-                    <a href="{{ route('machines.edit', $machine->id) }}" class="action-btn">Edit</a>
-                    <form action="{{ route('machines.destroy', $machine->id) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="action-btn" style="background:red; color:white;">Delete</button>
-                    </form>
-                </td>
-            </tr>
-        @empty
-            <tr>
-                <td colspan="6">No machines found.</td>
-            </tr>
-        @endforelse
-    </tbody>
-</table>
-
-
+      </thead>
+      <tbody>
+        @foreach($machines as $machine)
+        <tr>
+          <td>{{ $machine->id }}</td>
+          <td>{{ $machine->name }}</td>
+          <td>{{ $machine->code }}</td>
+          <td>{{ $machine->detail }}</td>
+          <td>
+            <a href="{{ route('machines.show',$machine->id) }}" class="btn btn-custom btn-show">SHOW</a>
+            <a href="{{ route('machines.edit',$machine->id) }}" class="btn btn-custom btn-edit">EDIT</a>
+            <form action="{{ route('machines.destroy',$machine->id) }}" method="POST" style="display:inline;">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-custom btn-delete">DELETE</button>
+            </form>
+          </td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
