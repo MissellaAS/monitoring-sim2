@@ -30,8 +30,3 @@ Route::resource('machines', MachineController::class);
 
 // Resource untuk orders (CRUD)
 Route::resource('orders', OrderController::class);
-<<<<<<< HEAD
- 
-
-=======
->>>>>>> 617facd1a70a4ce30154d716a99354d710cb8648
