@@ -7,13 +7,14 @@
   <title>Vesta Manufacturing - @yield('title')</title>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Navbar -->
   <div class="navbar">
-    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div> <!-- ikon menu -->
+    <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
   </div>
-  
+
+  <!-- Menu navigasi (disembunyikan dulu) -->
   <div class="nav-links" id="menu">
-    <a href="#">Home</a>
+    <a href="{{ url('/product') }}">Home</a>
     <a href="{{ route('orders.create') }}">Order List</a>
     <a href="#">Product Customer</a>
     <a href="#">Production Monitoring</a>
@@ -27,5 +28,33 @@
     }
   </script>
 
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-text">
+      <h2>Vesta</h2>
+      <h1>Manufacturing</h1>
+      <p>
+        MANUFACTURING COMPANY ENGAGED <br>
+        IN THE MANUFACTURE <br>
+        OF INDUSTRIAL MACHINE PARTS
+      </p>
+    </div>
+  </div>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("menu");
+    if (menu.style.display === "flex") {
+      menu.style.display = "none";
+    } else {
+      menu.style.display = "flex";
+    }
+  }
+</script>
+
+
 </body>
+
 </html>
+
+
+

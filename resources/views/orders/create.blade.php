@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-  <title>Order List</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <title>ORDER FORM</title>
   <style>
     body {
       margin: 0;
@@ -15,12 +17,27 @@
     /* Navbar */
     .navbar {
       background-color: #000;
-      padding: 10px 15px;
+      color: #fff;
+      padding: 5px;
     }
     .menu-icon {
-      font-size: 25px;
-      color: #fff;
+      font-size: 24px;
       cursor: pointer;
+      margin-left: 20px;
+    }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background-color: #000;
+      padding: 10px;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 0;
+    }
+    .nav-links a:hover {
+      background-color: #333;
     }
 
     /* Container */
@@ -47,15 +64,22 @@
       justify-content: space-between;
       align-items: flex-start;
       gap: 50px;
+      display: flex;
+      justify-content: space-between;
+      padding: 40px;
     }
 
     /* Left Section */
     .form-section {
       flex: 1;
     }
+    .form-section h2 {
+      font-weight: bold;
+      margin-bottom: 25px;
+      color: #000;
+    }
     .form-group {
       margin-bottom: 20px;
-      text-align: left;
     }
     label {
       display: block;
@@ -64,7 +88,7 @@
       color: #fff;
     }
     input, textarea {
-      width: 100%;
+      width: 80%;
       padding: 12px;
       border-radius: 10px;
       border: none;
@@ -79,13 +103,11 @@
     .status-section {
       width: 250px;
       text-align: center;
-      padding: 20px;
     }
     .status-section h3 {
-      margin-bottom: 20px;
-      font-weight: bold;
-      color: #ffffffff;
-      font-size: 23px;
+      margin-bottom: 25px;
+      font-weight: normal;
+      color: #000;
     }
     .status-btn {
       display: block;
@@ -96,15 +118,12 @@
       font-weight: bold;
       cursor: pointer;
       transition: 0.2s;
-      width: 146px;
     }
     .status-btn:hover {
       opacity: 0.9;
       transform: scale(1.05);
     }
-    .red { background-color: #e74c3c; color: white; }
-    .yellow { background-color: #f1c40f; color: #000; }
-    .green { background-color: #2ecc71; color: white; }
+    
 
     /* Status aktif */
     .active {
@@ -112,8 +131,9 @@
     }
 
     /* Confirm Button */
-    .confirm-btn {
-      margin-top: 40px;
+    .submit-btn {
+      margin: 40px auto 0 auto;
+      display: block;
       padding: 12px 40px;
       background-color: #fff;
       color: #000;
@@ -122,91 +142,98 @@
       font-weight: bold;
       cursor: pointer;
       transition: 0.2s;
+      justify-content: center;
+      
+      
     }
-    .confirm-btn:hover {
+    .submit-btn:hover {
       background-color: #ddd;
     }
+    .pull-right {
+      margin: 10px 0;
+      text-align: left;
+    }
+
+    .btn {
+    transition: all 0.2s ease-in-out;
+    margin-right: 10px;
+    }
+
+    .btn-check:checked + .btn {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    font-weight: bold;
+    border: 2px solid #000;
+    }
+
+    .form-label{
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+    }
   </style>
+
+
 </head>
 <body>
   <!-- Navbar -->
   <div class="navbar">
-    <span class="menu-icon">&#9776;</span>
+    <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
   </div>
 
-  <!-- Content -->
-  <div class="container">
-    <h2 class="form-title">Order Form</h2>
-    <div class="pull-right mb-3">
-      <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
-    </div>
-
-    <form action="{{ route('products.store') }}" method="POST">
-      @csrf
-
-      <div class="form-wrapper">
-        <!-- Left: Form -->
-        <div class="form-section">
-          <div class="form-group">
-            <label for="company">Company</label>
-            <input type="text" id="company" name="company" placeholder="Enter company name">
-          </div>
-          <div class="form-group">
-            <label for="product">Product</label>
-            <input type="text" id="product" name="product" placeholder="Enter product name">
-          </div>
-          <div class="form-group">
-            <label for="details">Details</label>
-            <textarea id="details" name="details" placeholder="Enter details"></textarea>
-          </div>
-        </div>
-
-        <!-- Right: Status -->
-        <div class="status-section">
-          <h3>Status Product</h3>
-          <button type="button" class="status-btn red" value="preparation">Preparation</button>
-          <button type="button" class="status-btn yellow" value="onprocess">On Process</button>
-          <button type="button" class="status-btn green" value="finish">Finish</button>
-        </div>
-      </div>
-
-      <!-- Hidden input untuk status -->
-      <input type="hidden" name="status" id="status">
-
-      <div class="text-center">
-        <button type="submit" class="confirm-btn">CONFIRM</button>
-      </div>
-    </form>
+  <div class="nav-links" id="menu">
+    <a href="{{ url('/products') }}">Home</a>
+    <a href="#">Product Customer</a>
+    <a href="#">Production Monitoring</a>
+    <a href="{{ route('machines.index') }}">Machine Monitoring</a>
   </div>
 
   <script>
-    // Pilih semua tombol status
-    const statusButtons = document.querySelectorAll('.status-btn');
-    const statusInput = document.getElementById('status');
-
-    statusButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Hapus kelas aktif dari semua tombol
-        statusButtons.forEach(btn => btn.classList.remove('active'));
-        // Tambah kelas aktif ke tombol yang diklik
-        button.classList.add('active');
-        // Simpan nilai ke input hidden
-        statusInput.value = button.value;
-      });
-    });
-
-    // Validasi sebelum submit
-    document.querySelector('form').addEventListener('submit', function(e) {
-      const company = document.getElementById('company').value;
-      const product = document.getElementById('product').value;
-      const details = document.getElementById('details').value;
-      const status = statusInput.value;
-
-      if (!company || !product || !details || !status) {
-        e.preventDefault(); // cegah submit
-        alert("Harap isi semua form dan pilih status produk!");
-      }
-    });
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
   </script>
+
+  <!-- Content -->
+  <div class="container">
+    <!-- Left: Form -->
+    <div class="form-section">
+      <h2>ORDER FORM</h2>
+    </div>
+
+<form action="{{ route('products.store') }}" method="POST">
+    @csrf
+
+    <div> 
+      <div class="form-group">
+        <label>Company</label>
+        <input type="text" id="company" placeholder="Enter company name">
+      </div>
+      <div class="form-group">
+        <label>Product</label>
+        <input type="text" id="product" placeholder="Enter product name">
+      </div>
+      <div class="form-group">
+        <label>Details</label>
+        <textarea id="details" placeholder="Enter details"></textarea>
+      </div>
+    </div>
+
+  <!--Checkbox Pilihan Status-->
+    <legend for="pilihan-lomba" class="form-label">Status Product</legend>
+    <input type="radio" class="btn-check" name="status" value="Preparation" id="success-outlined" autocomplete="off">
+    <label class="btn btn-primary" for="success-outlined">Preparation</label>
+
+    <input type="radio" class="btn-check" name="status"  value="Onprocess" id="option0" autocomplete="off">
+    <label class="btn btn-warning" for="option0">On Process</label>
+    
+    <input type="radio" class="btn-check" name="status" value="Finish" id="option1" autocomplete="off">
+    <label class="btn btn-success" for="option1">Finish</label>
+
+    <div class="submit">
+      <button type="submit" class="submit-btn">SUBMIT</button>
+    </div>
+
 </body>
 </html>
