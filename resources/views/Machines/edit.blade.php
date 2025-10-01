@@ -1,1 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Machine</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0e6aa8;
+            color: white;
+        }
 
+        .edit-container {
+            padding: 30px;
+            min-height: 100vh;
+        }
+
+        /* Header dan tombol back */
+        .edit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .edit-header h2 {
+            font-weight: bold;
+        }
+
+        .btn-back {
+            background-color: #2ea8ff;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Box form */
+        .edit-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-box {
+            background-color: #0e6aa8;
+            border: 2px solid black;
+            padding: 20px;
+            border-radius: 5px;
+            width: 50%;
+        }
+
+        .form-box label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .form-box input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        /* Tombol update */
+        .btn-update {
+            background-color: #2ea8ff;
+            color: white;
+            font-weight: bold;
+            padding: 10px 25px;
+            border-radius: 15px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn-update:hover {
+            background-color: #007acc;
+        }
+    </style>
+</head>
+<body>
+    <div class="edit-container">
+        <div class="edit-header">
+            <h2>EDIT MACHINE</h2>
+            <a href="{{ route('machines.index') }}" class="btn-back">BACK</a>
+        </div>
+
+        <form class="edit-form">
+            <div class="form-box">
+                <label for="machine">Machine</label>
+                <input type="text" id="machine" name="machine" placeholder="Enter Machine">
+
+                <label for="code">Code Machine</label>
+                <input type="text" id="code" name="code" placeholder="Enter Code">
+
+                <label for="detail">Detail</label>
+                <input type="text" id="detail" name="detail" placeholder="Enter Detail">
+            </div>
+
+            <button type="submit" class="btn-update">UPDATE</button>
+        </form>
+    </div>
+</body>
+</html>
