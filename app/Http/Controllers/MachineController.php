@@ -31,23 +31,26 @@ class MachineController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+   public function store(Request $request)
     {
-        $request->validate([
-            'machine' => 'required|string|max:255',
-            'code' => 'required|string|max:100|unique:machines,code_machine',
-            'detail' => 'nullable|string|max:500',
-        ]);
+    $request->validate([
+        'machine' => 'required',
+        'code' => 'required',
+        'detail' => 'required',
+        'status' => 'required'
+    ]);
 
-        Machine::create([
-            'machine' => $request->machine,
-            'code' => $request->code_machine,
-            'detail' => $request->detail,
-        ]);
+    Machine::create([
+        'machine' => $request->machine,
+        'code' => $request->code,
+        'detail' => $request->detail,
+        'status' => $request->status
+    ]);
 
-        return redirect()->route('machines.index')
-                         ->with('success', 'Machine added successfully.');
+    return redirect()->route('machines.index')->with('success', 'Machine added successfully!');
     }
+
+
 
     /**
      * Display the specified resource.

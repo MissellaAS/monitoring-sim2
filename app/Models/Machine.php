@@ -8,15 +8,13 @@ use Illuminate\Database\Eloquent\Hasmany;
 
 class Machine extends Model
 {
-    use HasFactory;
-    protected $fillable= [
-        'machine',
-        'code',
-        'detail',
-    ];
+    protected $fillable = ['machine', 'code', 'detail', 'status'];
+}
+
+
 
 //     public function products(): HasMany
 //     {
 //         return $this->hasMany(Product::class);
 //     }
- }
+

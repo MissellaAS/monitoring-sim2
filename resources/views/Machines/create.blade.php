@@ -64,6 +64,13 @@
             border-radius: 20px;
             font-weight: bold;
         }
+        .alert {
+            background: white;
+            color: red;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
@@ -74,16 +81,41 @@
 
     <!-- Box utama -->
     <div class="container">
-        <a href="{{ url()->previous() }}" class="btn-back">BACK</a>
+        <a href="{{ route('machines.index') }}" class="btn-back">BACK</a>
         <h2>ADD NEW MACHINE</h2>
+
+        <!-- Pesan error validasi -->
+        @if ($errors->any())
+            <div class="alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <div>
+    <label>Status:</label><br>
+    <input type="radio" name="status" value="Preparation" checked> Preparation
+    <input type="radio" name="status" value="On Process"> On Process
+    <input type="radio" name="status" value="Finish"> Finish
+</div>
+
+        <!-- Pesan sukses -->
+        @if(session('success'))
+            <div class="alert" style="color: green;">
+                {{ session('success') }}
+            </div>
+        @endif
 
         <form action="{{ route('machines.store') }}" method="POST">
             @csrf
             <label>Machine</label>
             <input type="text" name="machine" required>
 
-            <label>Code Machine</label>
-            <input type="text" name="code_machine" required>
+            <label>Code</label>
+            <!-- GANTI code_machine -> code -->
+            <input type="text" name="code" required>
 
             <label>Detail</label>
             <input type="text" name="detail">

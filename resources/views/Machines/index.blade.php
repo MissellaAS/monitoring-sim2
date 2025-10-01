@@ -1,150 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Machines Monitoring</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #13729a;
-      color: #000;
-    }
+    <title>Machines Monitoring</title>
+    <style>
+        body {
+            background-color: #0b77a5;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: black;
+        }
 
-    /* Navbar */
-    .navbar {
-      background-color: #000;
-      padding: 10px 15px;
-    }
-    .menu-icon {
-      font-size: 25px;
-      color: #fff;
-      cursor: pointer;
-    }
+        /* Header Title */
+        .header {
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            font-size: 28px;
+            color: white;
+        }
 
-    /* Container */
-    .container {
-      margin-top: 30px;
-    }
+        /* Top action bar */
+        .top-bar {
+            width: 90%;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn {
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-add {
+            background: gold;
+            color: black;
+        }
+        .btn-back {
+            background: white;
+            color: black;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
 
-    h2 {
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
+        /* Success message */
+        .alert-success {
+            background: #fff;
+            color: green;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 15px auto;
+            width: 80%;
+            text-align: center;
+            font-weight: bold;
+        }
 
-    /* Buttons */
-    .btn-custom {
-      border-radius: 25px;
-      font-weight: bold;
-      padding: 6px 20px;
-      border: none;
-      transition: 0.2s;
-    }
-    .btn-custom:hover {
-      opacity: 0.9;
-      transform: scale(1.05);
-    }
-    .btn-add {
-      background-color: #f1c40f;
-      color: #000;
-    }
-    .btn-back {
-      background-color: #fff;
-      color: #000;
-      border-radius: 25px;
-      font-weight: bold;
-      padding: 6px 25px;
-    }
+        /* Table style */
+        table {
+            width: 90%;
+            margin: 0 auto 30px auto;
+            border-collapse: separate;
+            border-spacing: 0 12px;
+        }
+        table th, table td {
+            padding: 15px;
+            text-align: center;
+        }
+        table th {
+            background: #0b77a5;
+            color: white;
+            border-radius: 12px 12px 0 0;
+        }
+        table tr {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        table td {
+            border-top: 1px solid #eee;
+        }
 
-    /* Table */
-    .table {
-      border-collapse: separate;
-      border-spacing: 10px 15px;
-      width: 100%;
-    }
-    .table th, .table td {
-      background: #fff;
-      border-radius: 20px;
-      text-align: center;
-      vertical-align: middle;
-      padding: 15px;
-    }
-    .table th {
-      font-weight: bold;
-    }
+        /* Action buttons */
+        .action-btn {
+            display: inline-block;
+            padding: 6px 15px;
+            margin: 2px;
+            border-radius: 15px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-edit {
+            background: #f1c40f;
+            color: black;
+        }
+        .btn-delete {
+            background: #e74c3c;
+            color: white;
+        }
+        .btn-edit:hover, .btn-delete:hover {
+            opacity: 0.85;
+        }
 
-    /* Action Buttons */
-    .btn-show { background-color: #2ecc71; color: white; }
-    .btn-edit { background-color: #f1c40f; color: #000; }
-    .btn-delete { background-color: #e74c3c; color: white; }
-
-    /* Status Buttons */
-    .btn-status {
-      border-radius: 25px;
-      font-weight: bold;
-      padding: 6px 15px;
-      margin: 0 3px;
-    }
-    .status-prep { background-color: #2ecc71; color: white; }
-    .status-process { background-color: #f1c40f; color: #000; }
-    .status-finish { background-color: #e74c3c; color: white; }
-  </style>
+        /* Status buttons */
+        .btn-status {
+            border-radius: 20px;
+            padding: 6px 15px;
+            font-weight: bold;
+            border: none;
+            margin: 2px;
+            cursor: pointer;
+        }
+        .status-prep {
+            background: #2ecc71;
+            color: white;
+        }
+        .status-process {
+            background: #f1c40f;
+            color: black;
+        }
+        .status-finish {
+            background: #e74c3c;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <div class="navbar">
-    <span class="menu-icon">&#9776;</span>
-  </div>
 
-  <!-- Content -->
-  <div class="container">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <h2>MACHINES MONITORING</h2>
-      <a href="{{ url('/products') }}" class="btn btn-back">BACK</a>
+    <!-- Header -->
+    <div class="header">MACHINES MONITORING</div>
+
+    <!-- Top bar with buttons -->
+    <div class="top-bar">
+        <a href="{{ route('machines.create') }}" class="btn btn-add">+ Add New Machine</a>
+        <a href="/" class="btn btn-back">Back</a>
     </div>
 
-    <div class="mb-3">
-      <a href="{{ route('machines.create') }}" class="btn btn-custom btn-add">Add New Machine</a>
-    </div>
+    <!-- Success message -->
+    @if(session('success'))
+        <div class="alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
-    <table class="table">
-      <thead>
+    <!-- Table -->
+    <table>
+    <thead>
         <tr>
-          <th>ID</th>
-          <th>MACHINE</th>
-          <th>CODE MACHINE</th>
-          <th>DETAIL</th>
-          <th>ACTION</th>
-          <th>STATUS</th>
+            <th>ID</th>
+            <th>Machine</th>
+            <th>Code</th>
+            <th>Detail</th>
+            <th>Status</th>
+            <th>Action</th>
         </tr>
-      </thead>
-      <tbody>
-        @foreach($machines as $machine)
-        <tr>
-          <td>{{ $machine->id }}</td>
-          <td>{{ $machine->name }}</td>
-          <td>{{ $machine->code }}</td>
-          <td>{{ $machine->detail }}</td>
-          <td>
-            <a href="{{ route('machines.show',$machine->id) }}" class="btn btn-custom btn-show">SHOW</a>
-            <a href="{{ route('machines.edit',$machine->id) }}" class="btn btn-custom btn-edit">EDIT</a>
-            <form action="{{ route('machines.destroy',$machine->id) }}" method="POST" style="display:inline;">
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="btn btn-custom btn-delete">DELETE</button>
-            </form>
-          </td>
-          <td>
-            <button class="btn btn-status status-prep">PREPARATION</button>
-            <button class="btn btn-status status-process">ON PROCESS</button>
-            <button class="btn btn-status status-finish">FINISH</button>
-          </td>
-        </tr>
-        @endforeach
-      </tbody>
-    </table>
-  </div>
+    </thead>
+    <tbody>
+        @forelse($machines as $machine)
+            <tr>
+                <td>{{ $machine->id }}</td>
+                <td>{{ $machine->machine }}</td>
+                <td>{{ $machine->code }}</td>
+                <td>{{ $machine->detail }}</td>
+                <td>
+                    @if($machine->status == 'Preparation')
+                        <span style="color: blue; font-weight: bold;">Preparation</span>
+                    @elseif($machine->status == 'On Process')
+                        <span style="color: orange; font-weight: bold;">On Process</span>
+                    @elseif($machine->status == 'Finish')
+                        <span style="color: green; font-weight: bold;">Finish</span>
+                    @else
+                        <span>-</span>
+                    @endif
+                </td>
+                <td>
+                    <a href="{{ route('machines.edit', $machine->id) }}" class="action-btn">Edit</a>
+                    <form action="{{ route('machines.destroy', $machine->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="action-btn" style="background:red; color:white;">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        @empty
+            <tr>
+                <td colspan="6">No machines found.</td>
+            </tr>
+        @endforelse
+    </tbody>
+</table>
+
+
 </body>
 </html>
