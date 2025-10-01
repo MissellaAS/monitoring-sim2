@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
   <title>Vesta Manufacturing</title>
-  <style>
+  {{-- <style>
     body, html {
       margin: 0;
       padding: 0;
@@ -67,7 +67,7 @@
       line-height: 1.5;
       letter-spacing: 1px;
     }
-  </style>
+  </style> --}}
 </head>
 <body>
   <!-- Header -->
