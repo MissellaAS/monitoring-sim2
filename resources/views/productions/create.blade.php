@@ -13,19 +13,14 @@
       font-family: Arial, sans-serif;
       background-color: #13729a;
       color: #000;
-<<<<<<< HEAD:resources/views/productions/create.blade.php
-<<<<<<< HEAD
-=======
-=======
+
     }
 
     .navbar {
       background-color: #000;
       color: #fff;
       padding: 5px;
->>>>>>> 0b50313b0b23c7561ca702a4c19f919dc3fa5009:resources/views/Products/create.blade.php
-      
->>>>>>> 880345a1ed947edd74a4e7b9cb999d7fc86529a5
+
     }
 
     .menu-icon {

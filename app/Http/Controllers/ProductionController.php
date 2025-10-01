@@ -14,7 +14,8 @@ class ProductionController extends Controller
     }
 
     public function create()
-    {
+    {   
+        
         return view('productions.create');
     }
 
@@ -54,5 +55,11 @@ class ProductionController extends Controller
         $production->delete();
 
         return redirect()->route('productions.index')->with('success', 'Production deleted successfully.');
+    }
+
+    public function tabel()
+    {   
+         $productions = Production::all();
+        return view('productions.tabel', compact('productions'));
     }
 }

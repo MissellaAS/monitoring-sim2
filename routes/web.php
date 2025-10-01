@@ -20,26 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Resource untuk produk (CRUD)
-Route::resource('productions', ProductController::class);
-
-Route::resource('machines', MachineController::class);
-Route::get('/order', function () {
-    return view('order');
-});
-
 Route::resource('machines', MachineController::class);
 
 // Resource untuk orders (CRUD)
 Route::resource('orders', OrderController::class);
 
-// Product Customer (hanya index)
-Route::get('/productions-customer', [ProductCustomerController::class, 'index'])
-    ->name('productions-customer.index');
-
-// Order page manual (jika butuh halaman statis)
-Route::get('/order', function () {
-    return view('order'); // resources/views/order.blade.php
-});
-
+Route::get('/productions/tabel', [ProductionController::class, 'tabel'])->name('productions.tabel');
 Route::resource('productions', ProductionController::class);
+
