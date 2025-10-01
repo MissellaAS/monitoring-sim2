@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+
 use App\Models\Production;
+use Illuminate\Http\Request;
 
 class ProductionController extends Controller
 {
@@ -14,7 +15,6 @@ class ProductionController extends Controller
 
     public function create()
     {
-        
         return view('productions.create');
     }
 
@@ -28,6 +28,7 @@ class ProductionController extends Controller
         ]);
 
         Production::create($request->all());
+
         return redirect()->route('productions.index')->with('success', 'Production created successfully.');
     }
 
@@ -44,12 +45,14 @@ class ProductionController extends Controller
     public function update(Request $request, Production $production)
     {
         $production->update($request->all());
+
         return redirect()->route('productions.index')->with('success','Production updated successfully');
     }
 
     public function destroy(Production $production)
     {
         $production->delete();
+
         return redirect()->route('productions.index')->with('success', 'Production deleted successfully.');
     }
 }

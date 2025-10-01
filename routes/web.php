@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 
 // Resource untuk produk (CRUD)
-Route::resource('products', ProductController::class);
+Route::resource('productions', ProductController::class);
 
 Route::resource('machines', MachineController::class);
 Route::get('/order', function () {
@@ -34,8 +34,8 @@ Route::resource('machines', MachineController::class);
 Route::resource('orders', OrderController::class);
 
 // Product Customer (hanya index)
-Route::get('/product-customer', [ProductCustomerController::class, 'index'])
-    ->name('product-customer.index');
+Route::get('/productions-customer', [ProductCustomerController::class, 'index'])
+    ->name('productions-customer.index');
 
 // Order page manual (jika butuh halaman statis)
 Route::get('/order', function () {
