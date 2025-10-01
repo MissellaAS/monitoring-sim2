@@ -2,7 +2,7 @@
 @section('content')
 
 
-@if ($message = Session::get('success'))
+{{-- @if ($message = Session::get('success'))
     <div class="alert alert-success">
         <p>{{ $message }}</p>
     </div>
@@ -10,7 +10,6 @@
 
     @foreach ($products as $product)
     <tr>
-        <td>{{ $loop->iteration }}</td>
         <td>{{ $product->machine->company }}</td>
         <td>{{ $product->product }}</td>
         <td>{{ $product->detail }}</td>
@@ -37,4 +36,4 @@
             </form>
         </td>
     </tr>
-    @endforeach
+    @endforeach --}}
