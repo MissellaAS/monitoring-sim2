@@ -28,23 +28,14 @@
 
     /* Container */
     .container {
-<<<<<<< HEAD
-      display: flex;
-      justify-content: space-between;
-      padding: 40px;
-=======
       display: left;
       justify-content: space-between;
       padding: 10px;
->>>>>>> 880345a1ed947edd74a4e7b9cb999d7fc86529a5
     }
 
     /* Left Section */
     .form-section {
       flex: 1;
-<<<<<<< HEAD
-    }
-=======
       margin-right: 50px;
       background-color: #13729a;
       padding: 30px;
@@ -52,16 +43,10 @@
       text-align: right;
     }
 
->>>>>>> 880345a1ed947edd74a4e7b9cb999d7fc86529a5
     .form-section h2 {
       font-weight: bold;
       margin-bottom: 25px;
       color: #000;
-<<<<<<< HEAD
-    }
-    .form-group {
-      margin-bottom: 20px;
-=======
       text-align: left;
       padding-left: 70px;
       
@@ -72,7 +57,6 @@
       text-align: left;
       padding-left: 100px;
       width: 50%;
->>>>>>> 880345a1ed947edd74a4e7b9cb999d7fc86529a5
     }
     label {
       display: block;
@@ -96,19 +80,12 @@
     .status-section {
       width: 250px;
       text-align: center;
-<<<<<<< HEAD
-    }
-    .status-section h3 {
-      margin-bottom: 25px;
-      font-weight: normal;
-=======
       padding: 30px;
 
     }
     .status-section h3 {
       margin-bottom: 25px;
       font-weight: bold;
->>>>>>> 880345a1ed947edd74a4e7b9cb999d7fc86529a5
       color: #000;
     }
     .status-btn {
@@ -187,11 +164,7 @@
     </div>
 
     <!-- Right: Status -->
-<<<<<<< HEAD
-    <div class="status-section">
-=======
     <div class="status-section col-md-4 right">
->>>>>>> 880345a1ed947edd74a4e7b9cb999d7fc86529a5
       <h3>Status Product</h3>
       <button class="status-btn red" name="preparation" value="preparation" for="option0">Preparation</button>
       <button class="status-btn yellow" name="onprocess" value="onprocess" for="option1">On Process</button>
