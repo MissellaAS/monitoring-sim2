@@ -72,17 +72,17 @@ class MachineController extends Controller
     public function update(Request $request, Machine $machine)
     {
         $request->validate([
-            'machine' => 'required|string|max:255',
-            'code' => 'required|string|max:255',
-            'detail' => 'nullable|string',
+            'machine' => 'required',
+            'code' => 'required',
+            'detail' => 'required',
         ]);
 
         $machine->update($request->all());
 
         return redirect()->route('machines.index')
-                         ->with('success', 'Machine updated successfully.');
+                     ->with('success', 'Machine updated successfully!');
     }
-
+    
     /**
      * Remove the specified resource from storage.
      */

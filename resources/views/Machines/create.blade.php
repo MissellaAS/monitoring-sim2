@@ -79,6 +79,22 @@
         <i>&#9776;</i>
     </div>
 
+<<<<<<< HEAD
+=======
+    <div class="nav-links" id="menu">
+        <a href="{{ url('/products') }}">Home</a>
+        <a href="{{ route('products.create') }}">Product Customer</a>
+        <a href="{{ route('machines.index') }}">Production Monitoring</a>
+    </div>
+
+    <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+    </script>
+
+>>>>>>> 617facd1a70a4ce30154d716a99354d710cb8648
     <!-- Box utama -->
     <div class="container">
         <a href="{{ route('machines.index') }}" class="btn-back">BACK</a>
