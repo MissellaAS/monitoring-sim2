@@ -143,7 +143,7 @@
           <select name="machine_id" class="form-control">
             <option value="">Select Machine</option>
             @foreach($machines as $machine)
-            <option value="{{ $machine_id }}">{{  $machine->name }}</option>
+            <option value="{{ $machine->id }}">{{  $machine->name }}</option>
             @endforeach
           </select>
         </div>
@@ -152,8 +152,8 @@
           <label for="productions">Product</label>
           <select name="productions_id" class="form-control">
             <option value="">Select Product</option>
-            @foreach($products as $product)
-            <option value="{{ $product->id }}">{{  $product->name }}</option>
+            @foreach($productions as $production)
+            <option value="{{ $production->id }}">{{  $production->name }}</option>
             @endforeach
           </select>
         </div>

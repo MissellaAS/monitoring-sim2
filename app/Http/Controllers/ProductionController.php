@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Production;
 use Illuminate\Http\Request;
+use App\Models\Machine;
 
 class ProductionController extends Controller
 {
@@ -15,8 +16,9 @@ class ProductionController extends Controller
 
     public function create()
     {   
-        
-        return view('productions.create');
+        $productions = Production::all();
+        $machines = Machine::all();
+        return view('productions.create', compact('productions', 'machines'));
     }
 
     public function store(Request $request)
