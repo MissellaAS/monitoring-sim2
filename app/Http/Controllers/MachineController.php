@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Machine;
-use App\Models\Product;
 use App\Models\Production;
 use Illuminate\Http\Request;
 
@@ -54,7 +53,7 @@ class MachineController extends Controller
     public function show(Machine $machine)
 {
     $productions = Production::all(); // ambil produk yang terkait dengan machine ini
-    return view('machines.show', compact('machine', 'productions')); // perbaiki variabel compact
+    return view('machines.show', compact('machine', 'productions'));
 }
 
 
