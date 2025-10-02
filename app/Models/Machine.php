@@ -16,6 +16,6 @@ class Machine extends Model
     ];
     public function orders(): HasMany
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Production::class);
     }
  }
