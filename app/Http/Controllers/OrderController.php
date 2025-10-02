@@ -12,7 +12,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
+        $orders = Order::latest()->get();
         return view('orders.index', compact('orders'));
     }
 
@@ -28,25 +28,28 @@ class OrderController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    $request->validate([
-        'company' => 'required',
-        'product' => 'required',
-        'detail' => 'nullable',
-        'status' => 'required'
-    ]);
+    {
+        $validated = $request->validate([
+            'company' => 'required|string|max:255',
+            'product' => 'required|string|max:255',
+            'details' => 'required|string',
+            'status' => 'required|string|max:255',
+        ]);
 
-    Order::create($request->all());
+        Order::create($validated);
 
-    return redirect()->route('machines.index')->with('success', 'Order added successfully!');
-}
+        return redirect()->route('orders.index')
+            ->with('success', 'Order created successfully.');
+    }
+
     /**
      * Display the specified resource.
      */
     public function show(Order $order)
     {
         return view('orders.show', compact('order'));
-    }       
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -60,33 +63,27 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        $request->validate([
-            'order_number' => 'required|string|max:255',
-            'customer_name' => 'required|string|max:255',
+        $validated = $request->validate([
+            'company' => 'required|string|max:255',
             'product' => 'required|string|max:255',
-            'quantity' => 'required|integer',
+            'details' => 'required|string',
             'status' => 'required|string|max:255',
         ]);
 
-        $order->update([
-            'order_number' => $request->order_number,
-            'customer_name' => $request->customer_name,
-            'product' => $request->product,
-            'quantity' => $request->quantity,
-            'status' => $request->status,
-        ]);
+        $order->update($validated);
+
         return redirect()->route('orders.index')
-                         ->with('success', 'Order updated successfully.');
+            ->with('success', 'Order updated successfully.');
     }
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Order $order)
     {
         $order->delete();
+
         return redirect()->route('orders.index')
-                         ->with('success', 'Order deleted successfully.');
+            ->with('success', 'Order deleted successfully.');
     }
 }
-
-

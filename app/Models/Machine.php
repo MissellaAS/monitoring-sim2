@@ -4,17 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Hasmany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Machine extends Model
 {
-    protected $fillable = ['machine','code','detail'];
-}
-
-
-
-//     public function products(): HasMany
-//     {
-//         return $this->hasMany(Product::class);
-//     }
-
+    use HasFactory;
+    protected $fillable= [
+        'machine',
+        'code',
+        'detail',
+    ];
+    
+    public function productions(): HasMany
+    {
+        return $this->hasMany(Production::class);
+    }
+ }

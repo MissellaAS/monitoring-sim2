@@ -17,7 +17,7 @@
   <div class="nav-links" id="menu">
     <a href="{{ url('/product') }}">Home</a>
     <a href="{{ route('orders.index') }}">Order List</a>
-    <a href="{{ route('products.create') }}">Production Monitoring</a>
+    <a href="{{ route('productions.create') }}">Production Monitoring</a>
     <a href="{{ route('machines.index') }}">Machine Monitoring</a>
   </div>
 @yield('content')

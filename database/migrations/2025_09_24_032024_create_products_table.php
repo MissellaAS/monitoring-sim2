@@ -17,6 +17,7 @@ return new class extends Migration
                 table: 'machines',
                 indexName: 'products_machine_id_',
             );
+            
             $table->string('product');
             $table->string('detail');
             $table->string('status');
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('productions');
     }
 };
