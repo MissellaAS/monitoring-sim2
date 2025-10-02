@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
   <title>Vesta Manufacturing - @yield('title')</title>
@@ -16,8 +17,7 @@
   <div class="nav-links" id="menu">
     <a href="{{ url('/product') }}">Home</a>
     <a href="{{ route('orders.index') }}">Order List</a>
-    <a href="#">Product Customer</a>
-    <a href="#">Production Monitoring</a>
+    <a href="{{ route('productions.create') }}">Production Monitoring</a>
     <a href="{{ route('machines.index') }}">Machine Monitoring</a>
   </div>
 @yield('content')

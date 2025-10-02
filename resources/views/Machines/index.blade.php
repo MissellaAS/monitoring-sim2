@@ -114,7 +114,6 @@
   <div class="nav-links" id="menu">
     <a href="{{ url('/productions') }}">Home</a>
     <a href="{{ route('orders.create') }}">Order List</a>
-    <a href="#">Product Customer</a>
     <a href="#">Production Monitoring</a>
   </div>
 
@@ -164,7 +163,7 @@
             </form>
           </td>
         </tr>
-        @endforeach
+       @endforeach
       </tbody>
     </table>
   </div>

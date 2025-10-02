@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MachineController;
-use App\Http\Controllers\ProductCustomerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductionController;
 
