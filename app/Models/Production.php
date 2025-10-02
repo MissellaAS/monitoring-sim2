@@ -21,3 +21,4 @@ class Production extends Model
     }
     
 }
+
