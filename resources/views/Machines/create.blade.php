@@ -100,7 +100,7 @@
             <input type="text" name="machine" required>
 
             <label>Code Machine</label>
-            <input type="text" name="code_machine" required>
+            <input type="text" name="code" required>
 
             <label>Detail</label>
             <input type="text" name="detail">

@@ -59,7 +59,7 @@ class ProductionController extends Controller
 
     public function tabel()
     {   
-         $productions = Production::all();
+        $productions = Production::all();
         return view('productions.tabel', compact('productions'));
     }
 }

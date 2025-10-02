@@ -20,11 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// Route::get('/productions/tabel',[ProductionController::class,'tabel'])->name('productions.tabel');
+
+Route::get('/productions/tabel',[ProductionController::class,'tabel'])->name('productions.tabel');
+
+Route::resource('productions', ProductionController::class);
 Route::resource('machines', MachineController::class);
 
 // Resource untuk orders (CRUD)
 Route::resource('orders', OrderController::class);
-
-Route::get('/productions/tabel', [ProductionController::class, 'tabel'])->name('productions.tabel');
-Route::resource('productions', ProductionController::class);
-
