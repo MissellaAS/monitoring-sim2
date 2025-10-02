@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
     <title>Edit Machine</title>
     <style>
         body {
@@ -12,9 +13,23 @@
             color: white;
         }
 
+        .navbar {
+            background: black;
+            padding: 10px;
+        }
+        .navbar i {
+            color: white;
+            font-size: 24px;
+        }
+
         .edit-container {
             padding: 30px;
             min-height: 100vh;
+            margin-top: 40px;
+        }
+
+        h2 {
+            margin top: 20px;
         }
 
         /* Header dan tombol back */
@@ -27,6 +42,7 @@
 
         .edit-header h2 {
             font-weight: bold;
+            margin-left: 40px;
         }
 
         .btn-back {
@@ -36,6 +52,7 @@
             border-radius: 15px;
             text-decoration: none;
             font-weight: bold;
+            margin-right: 40px;
         }
 
         .btn-back:hover {
@@ -90,6 +107,23 @@
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+    </div>
+
+    <div class="nav-links" id="menu">
+        <a href="{{ url('/products') }}">Home</a>
+        <a href="#">Product Customer</a>
+        <a href="#">Production Monitoring</a>
+    </div>
+
+    <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    }
+    </script>
+
     <div class="edit-container">
         <div class="edit-header">
             <h2>EDIT MACHINE</h2>
