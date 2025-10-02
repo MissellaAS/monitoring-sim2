@@ -6,28 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('productions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('machine_id')->constrained(
-                table: 'machines',
-                indexName: 'products_machine_id_',
-            );
-            
+            $table->string('company');
+            $table->string('machine');
             $table->string('product');
-            $table->string('detail');
-            $table->string('status');
+            $table->text('detail')->nullable();
+            $table->enum('status', ['Preparation', 'On Process', 'Finish'])->default('Preparation');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('productions');

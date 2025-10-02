@@ -182,9 +182,8 @@
   </div>
 
   <div class="nav-links" id="menu">
-    <a href="{{ url('/products') }}">Home</a>
-    <a href="#">Product Customer</a>
-    <a href="#">Production Monitoring</a>
+    <a href="{{ url('/productions') }}">Home</a>
+    <a href="{{ route('productions.create') }}">Production Monitoring</a>
     <a href="{{ route('machines.index') }}">Machine Monitoring</a>
   </div>
 
@@ -202,38 +201,38 @@
       <h2>ORDER FORM</h2>
     </div>
 
-<form action="{{ route('products.store') }}" method="POST">
-    @csrf
+    <form action="{{ route('orders.store') }}" method="POST">
+        @csrf
+        <div> 
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" id="company" name='company' placeholder="Enter company name">
+          </div>
+          <div class="form-group">
+            <label>Product</label>
+            <input type="text" id="product" name='product' placeholder="Enter product name">
+          </div>
+          <div class="form-group">
+            <label>Details</label>
+            <textarea id="details" name='details' placeholder="Enter details"></textarea>
+          </div>
+          <div class="form-group">
+            <legend for="pilihan-lomba" class="form-label">Status Product</legend>
+            <input type="radio" class="btn-check" name="status" value="Preparation" id="success-outlined" autocomplete="off">
+            <label class="btn btn-primary" for="success-outlined">Preparation</label>
 
-    <div> 
-      <div class="form-group">
-        <label>Company</label>
-        <input type="text" id="company" placeholder="Enter company name">
-      </div>
-      <div class="form-group">
-        <label>Product</label>
-        <input type="text" id="product" placeholder="Enter product name">
-      </div>
-      <div class="form-group">
-        <label>Details</label>
-        <textarea id="details" placeholder="Enter details"></textarea>
-      </div>
-    </div>
-
-  <!--Checkbox Pilihan Status-->
-    <legend for="pilihan-lomba" class="form-label">Status Product</legend>
-    <input type="radio" class="btn-check" name="status" value="Preparation" id="success-outlined" autocomplete="off">
-    <label class="btn btn-primary" for="success-outlined">Preparation</label>
-
-    <input type="radio" class="btn-check" name="status"  value="Onprocess" id="option0" autocomplete="off">
-    <label class="btn btn-warning" for="option0">On Process</label>
-    
-    <input type="radio" class="btn-check" name="status" value="Finish" id="option1" autocomplete="off">
-    <label class="btn btn-success" for="option1">Finish</label>
-
-    <div class="submit">
-      <button type="submit" class="submit-btn">SUBMIT</button>
-    </div>
-
+            <input type="radio" class="btn-check" name="status"  value="On Process" id="option0" autocomplete="off">
+            <label class="btn btn-warning" for="option0">On Process</label>
+            
+            <input type="radio" class="btn-check" name="status" value="Finish" id="option1" autocomplete="off">
+            <label class="btn btn-success" for="option1">Finish</label>
+          </div>
+          <div class="submit">
+            <button type="submit" class="submit-btn">SUBMIT</button>
+          </div>
+        </div>
+    </form>
+  </div>
 </body>
+
 </html>
