@@ -25,11 +25,11 @@
         .edit-container {
             padding: 30px;
             min-height: 100vh;
-            margin: 30px;
+            margin-top: 40px;
         }
 
         h2 {
-            margin-top: 20px;
+            margin top: 20px;
         }
 
         /* Header dan tombol back */
@@ -42,6 +42,7 @@
 
         .edit-header h2 {
             font-weight: bold;
+            margin-left: 40px;
         }
 
         .btn-back {
@@ -51,6 +52,7 @@
             border-radius: 15px;
             text-decoration: none;
             font-weight: bold;
+            margin-right: 40px;
         }
 
         .btn-back:hover {
