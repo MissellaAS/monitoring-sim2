@@ -11,9 +11,8 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('company');
-            $table->string('machine');
             $table->string('product');
-            $table->text('detail')->nullable();
+            $table->text('details')->nullable();
             $table->enum('status', ['Preparation', 'On Process', 'Finish'])->default('Preparation');
             $table->timestamps();
             

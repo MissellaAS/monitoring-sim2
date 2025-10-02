@@ -201,21 +201,20 @@
       <h2>ORDER FORM</h2>
     </div>
 
-<form action="{{ route('productions.store') }}" method="POST">
+<form action="{{ route('orders.store') }}" method="POST">
     @csrf
-
     <div> 
       <div class="form-group">
         <label>Company</label>
-        <input type="text" id="company" placeholder="Enter company name">
+        <input type="text" id="company" name='company' placeholder="Enter company name">
       </div>
       <div class="form-group">
         <label>Product</label>
-        <input type="text" id="product" placeholder="Enter product name">
+        <input type="text" id="product" name='product' placeholder="Enter product name">
       </div>
       <div class="form-group">
         <label>Details</label>
-        <textarea id="details" placeholder="Enter details"></textarea>
+        <textarea id="details" name='details' placeholder="Enter details"></textarea>
       </div>
     </div>
 
@@ -233,6 +232,8 @@
     <div class="submit">
       <button type="submit" class="submit-btn">SUBMIT</button>
     </div>
+</form>
 
 </body>
+
 </html>

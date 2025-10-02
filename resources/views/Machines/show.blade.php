@@ -41,7 +41,7 @@
                 @if($order->product === 'SHAFT') border border-3 border-primary @endif">
 
                 <!-- Nama produk -->
-                <span class="fw-bold">{{ strtoupper($order->product) }}</span>
+                <span class="fw-bold">{{ strtoupper($order->production) }}</span>
 
                 <!-- Status -->
                 @if($order->status === 'ON PROCESS')

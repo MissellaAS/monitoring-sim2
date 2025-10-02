@@ -21,7 +21,7 @@ class OrderController extends Controller
     public function create()
     {
         $orders = Order::all();
-        return view('orders.create');
+        return view('orders.create', compact('orders')); 
     }
 
     /**
@@ -30,24 +30,24 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'order_number' => 'required|string|max:255',
-            'customer_name' => 'required|string|max:255',
+            'company' => 'required|string|max:255',
             'product' => 'required|string|max:255',
-            'quantity' => 'required|integer',
+            'details' => 'required|integer',
             'status' => 'required|string|max:255',
         ]);
 
         Order::create([
-            'order_number' => $request->order_number,
-            'customer_name' => $request->customer_name,
+            'company' => $request->company,
             'product' => $request->product,
-            'quantity' => $request->quantity,
+            'details' => $request->details,
             'status' => $request->status,
         ]);
+        
+        return redirect()->route('orders.index')->with('success', 'Order created successfully.');
+        
 
-        return redirect()->route('orders.index')
-                         ->with('success', 'Order created successfully.');
     }
+
     /**
      * Display the specified resource.
      */
@@ -69,19 +69,17 @@ class OrderController extends Controller
     public function update(Request $request, Order $order)
     {
         $request->validate([
-            'order_number' => 'required|string|max:255',
-            'customer_name' => 'required|string|max:255',
+            'company' => 'required|string|max:255',
             'product' => 'required|string|max:255',
-            'quantity' => 'required|integer',
+            'detail' => 'required|integer',
             'status' => 'required|string|max:255',
         ]);
 
         $order->update([
-            'order_number' => $request->order_number,
-            'customer_name' => $request->customer_name,
-            'product' => $request->product,
-            'quantity' => $request->quantity,
-            'status' => $request->status,
+            'company' => 'required|string|max:255',
+            'product' => 'required|string|max:255',
+            'detail' => 'required|integer',
+            'status' => 'required|string|max:255',
         ]);
         return redirect()->route('orders.index')
                          ->with('success', 'Order updated successfully.');
