@@ -15,10 +15,10 @@ class Production extends Model
         'detail',
         'status',
     ];
-    public function machine()
-    {
-        return $this->belongsTo(Machine::class);
-    }
+    // public function machine()
+    // {
+    //     return $this->belongsTo(Machine::class);
+    // }
     
 }
 

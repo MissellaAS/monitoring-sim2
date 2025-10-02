@@ -12,6 +12,10 @@ return new class extends Migration
             $table->id();
             $table->string('company');
             $table->string('machine');
+            // $table->foreignId('machine_id')->constrained(
+            //     table: 'machines',
+            //     indexName: 'products_machine_id_',
+            // );
             $table->string('product');
             $table->text('detail')->nullable();
             $table->enum('status', ['Preparation', 'On Process', 'Finish'])->default('Preparation');

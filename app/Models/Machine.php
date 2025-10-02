@@ -15,8 +15,8 @@ class Machine extends Model
         'detail',
     ];
     
-    public function productions(): HasMany
+    public function orders(): HasMany
     {
-        return $this->hasMany(Production::class);
+        return $this->hasMany(Order::class);
     }
  }
