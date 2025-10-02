@@ -12,10 +12,11 @@ class MachineController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $machines = Machine::all();
-        return view('machines.index', compact('machines'));
-    }
+   {
+    $machines = Machine::all();
+    $orders = Order::all(); // supaya bisa ditampilkan juga di index
+    return view('Machines.index', compact('machines','orders'));
+}
 
     /**
      * Show the form for creating a new resource.
@@ -30,21 +31,17 @@ class MachineController extends Controller
      * Store a newly created resource in storage.
      */
    public function store(Request $request)
-    {
-        $request->validate([
-            'machine' => 'required|string|max:255',
-            'code' => 'required|string|max:255',
-            'detail' => 'nullable|string',
-        ]);
+        {
+    $request->validate([
+        'machine' => 'required',
+        'code' => 'required',
+        'detail' => 'nullable'
+    ]);
 
-        Machine::create([
-            'machine' => $request->machine,
-            'code' => $request->code,
-            'detail' => $request->detail,
-        ]);
+    Machine::create($request->all());
 
     return redirect()->route('machines.index')->with('success', 'Machine added successfully!');
-    }
+}
 
 
 

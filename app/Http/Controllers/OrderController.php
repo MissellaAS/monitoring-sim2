@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+
 class OrderController extends Controller
 {
     /**
@@ -20,7 +21,6 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $orders = Order::all();
         return view('orders.create');
     }
 
@@ -28,26 +28,18 @@ class OrderController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $request->validate([
-            'order_number' => 'required|string|max:255',
-            'customer_name' => 'required|string|max:255',
-            'product' => 'required|string|max:255',
-            'quantity' => 'required|integer',
-            'status' => 'required|string|max:255',
-        ]);
+{
+    $request->validate([
+        'company' => 'required',
+        'product' => 'required',
+        'detail' => 'nullable',
+        'status' => 'required'
+    ]);
 
-        Order::create([
-            'order_number' => $request->order_number,
-            'customer_name' => $request->customer_name,
-            'product' => $request->product,
-            'quantity' => $request->quantity,
-            'status' => $request->status,
-        ]);
+    Order::create($request->all());
 
-        return redirect()->route('orders.index')
-                         ->with('success', 'Order created successfully.');
-    }
+    return redirect()->route('machines.index')->with('success', 'Order added successfully!');
+}
     /**
      * Display the specified resource.
      */

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Hasmany;
 
 class Machine extends Model
 {
-    protected $fillable = ['machine', 'code', 'detail', 'status'];
+    protected $fillable = ['machine','code','detail'];
 }
 
 

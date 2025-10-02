@@ -8,14 +8,5 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Order extends Model
 {
-    use HasFactory;
-    protected $fillable = [
-        'order_number',
-        'customer_name',
-        'product',
-        'quantity',
-        'status',
-        
-    ];
-    
+    protected $fillable = ['company','product','detail','status'];
 }

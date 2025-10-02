@@ -16,19 +16,32 @@
         .navbar i {
             color: white;
             font-size: 24px;
+            cursor: pointer;
+        }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            background: #333;
+            padding: 10px;
+        }
+        .nav-links a {
+            color: white;
+            padding: 8px;
+            text-decoration: none;
         }
         .container {
             margin: 30px auto;
             width: 600px;
-            background: #0b77a5; /* biru sama dengan background */
+            background: #0b77a5;
             padding: 20px;
-            border-radius: 5px; /* sudut tetap membulat */
+            border-radius: 5px;
             position: relative;
         }
         h2 {
             color: black;
             font-weight: bold;
             margin-bottom: 20px;
+            text-align: center;
         }
         label {
             color: black;
@@ -43,7 +56,7 @@
             border: none;
             border-radius: 5px;
         }
-        .btn-submit {
+        .btn-submit, .submit-btn {
             display: block;
             margin: 20px auto 0 auto;
             background: #4db8ff;
@@ -71,11 +84,17 @@
             border-radius: 5px;
             margin-bottom: 15px;
         }
+        .status-group {
+            margin-top: 15px;
+        }
+        .status-group label {
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
-    <!-- Navbar hitam dengan icon -->
-    <div class="navbar">
+    <!-- Navbar -->
+    <div class="navbar" onclick="toggleMenu()">
         <i>&#9776;</i>
     </div>
 
@@ -87,17 +106,16 @@
 
     <script>
     function toggleMenu() {
-      const menu = document.getElementById("menu");
-      menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+        const menu = document.getElementById("menu");
+        menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
     }
     </script>
 
-    <!-- Box utama -->
     <div class="container">
         <a href="{{ route('machines.index') }}" class="btn-back">BACK</a>
         <h2>ADD NEW MACHINE</h2>
 
-        <!-- Pesan error validasi -->
+        <!-- Error message -->
         @if ($errors->any())
             <div class="alert">
                 <ul>
@@ -107,14 +125,15 @@
                 </ul>
             </div>
         @endif
-        
-        <!-- Pesan sukses -->
+
+        <!-- Success message -->
         @if(session('success'))
             <div class="alert" style="color: green;">
                 {{ session('success') }}
             </div>
         @endif
 
+        <!-- Form Machine -->
         <form action="{{ route('machines.store') }}" method="POST">
             @csrf
             <label>Machine</label>
@@ -126,7 +145,37 @@
             <label>Detail</label>
             <input type="text" name="detail">
 
-            <button type="submit" class="btn-submit">SUBMIT</button>
+            <button type="submit" class="btn-submit">SUBMIT MACHINE</button>
+        </form>
+
+        <hr style="margin: 30px 0; border: 1px solid black;">
+
+        <h2>ADD NEW ORDER</h2>
+        <!-- Form Order -->
+        <form action="{{ route('orders.store') }}" method="POST">
+            @csrf
+            <label>Company</label>
+            <input type="text" name="company" placeholder="Enter company name" required>
+
+            <label>Product</label>
+            <input type="text" name="product" placeholder="Enter product name" required>
+
+            <label>Details</label>
+            <textarea name="detail" placeholder="Enter details"></textarea>
+
+            <div class="status-group">
+                <legend>Status Product</legend>
+                <input type="radio" name="status" value="Preparation" id="prep">
+                <label for="prep">Preparation</label>
+
+                <input type="radio" name="status" value="Onprocess" id="process">
+                <label for="process">On Process</label>
+
+                <input type="radio" name="status" value="Finish" id="finish">
+                <label for="finish">Finish</label>
+            </div>
+
+            <button type="submit" class="submit-btn">SUBMIT ORDER</button>
         </form>
     </div>
 </body>

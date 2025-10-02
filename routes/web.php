@@ -29,4 +29,7 @@ Route::resource('productions', ProductionController::class);
 Route::resource('machines', MachineController::class);
 
 // Resource untuk orders (CRUD)
+Route::resource('machines', MachineController::class);
 Route::resource('orders', OrderController::class);
+
+
