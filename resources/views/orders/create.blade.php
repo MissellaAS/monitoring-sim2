@@ -182,8 +182,8 @@
   </div>
 
   <div class="nav-links" id="menu">
-    <a href="{{ url('/products') }}">Home</a>
-    <a href="{{ route('products.create') }}">Production Monitoring</a>
+    <a href="{{ url('/productions') }}">Home</a>
+    <a href="{{ route('productions.create') }}">Production Monitoring</a>
     <a href="{{ route('machines.index') }}">Machine Monitoring</a>
   </div>
 
@@ -201,7 +201,7 @@
       <h2>ORDER FORM</h2>
     </div>
 
-<form action="{{ route('products.store') }}" method="POST">
+<form action="{{ route('productions.store') }}" method="POST">
     @csrf
 
     <div> 
