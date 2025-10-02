@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('company');
             $table->string('product');
             $table->text('details');
-            $table->string('status');
+            $table->string('status')->default('preparation');
             $table->timestamps();
         });
     }
