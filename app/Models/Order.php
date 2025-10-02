@@ -31,4 +31,8 @@ class Order extends Model
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
+    public function machine(): HasMany
+    {
+        return $this->hasMany(Production::class);
+    }
 }
