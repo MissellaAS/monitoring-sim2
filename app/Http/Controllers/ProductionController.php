@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Production;
 use Illuminate\Http\Request;
+use App\Models\Machine;
 
 class ProductionController extends Controller
 {
@@ -15,17 +16,21 @@ class ProductionController extends Controller
 
     public function create()
     {   
-        
-        return view('productions.create');
+        $machines = Machine::all();
+        $productions = Production::all();
+        return view('productions.create', compact('machines' ,'productions'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'company' => 'required',
-            'machine' => 'required',
-            'product' => 'required',
-            'status'  => 'required',
+            'machine_id' => 'required|exists:machines,id',
+            'product_id' => 'required|exists:products,id',
+        ]);
+
+        Production::create([
+            'machine_id' => $request->machine_id,
+            'product_id' => $request->product_id,
         ]);
 
         Production::create($request->all());

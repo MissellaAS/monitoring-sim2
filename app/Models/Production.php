@@ -9,7 +9,7 @@ class Production extends Model
 {
     use HasFactory;
     protected $fillable= [
-         'company',
+        'company',
         'machine',
         'product',
         'detail',
@@ -20,5 +20,9 @@ class Production extends Model
         return $this->belongsTo(Machine::class);
     }
     
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
 }
 

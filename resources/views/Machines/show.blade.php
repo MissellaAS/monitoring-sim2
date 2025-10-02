@@ -36,12 +36,13 @@
     <div class="container">
         <h5 class="fw-bold text-white mb-4">PRODUCT</h5>
 
+
         @forelse ($machine->orders as $order)
             <div class="d-flex justify-content-between align-items-center bg-white rounded-pill px-4 py-3 mb-3 shadow-sm 
-                @if($order->production === 'SHAFT') border border-3 border-primary @endif">
+                @if($order->product === 'SHAFT') border border-3 border-primary @endif">
 
                 <!-- Nama produk -->
-                <span class="fw-bold">{{ strtoupper($order->production) }}</span>
+                <span class="fw-bold">{{ strtoupper($order->product) }}</span>
 
                 <!-- Status -->
                 @if($order->status === 'ON PROCESS')

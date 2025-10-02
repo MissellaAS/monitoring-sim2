@@ -17,5 +17,9 @@ class Order extends Model
         'status',
         
     ];
+    public function machines(): HasMany
+    {
+        return $this->hasMany(Machine::class);
+    }
     
 }

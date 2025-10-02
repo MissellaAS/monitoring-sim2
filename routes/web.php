@@ -17,7 +17,7 @@ use App\Http\Controllers\ProductionController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('productions');
 });
 
 
