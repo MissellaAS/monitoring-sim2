@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+
 class OrderController extends Controller
 {
     /**
@@ -11,7 +12,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
+        $orders = Order::latest()->get();
         return view('orders.index', compact('orders'));
     }
 
@@ -20,8 +21,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $orders = Order::all();
-        return view('orders.create', compact('orders')); 
+        return view('orders.create');
     }
 
     /**
@@ -29,23 +29,17 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'company' => 'required|string|max:255',
             'product' => 'required|string|max:255',
-            'details' => 'required|integer',
+            'details' => 'required|string',
             'status' => 'required|string|max:255',
         ]);
 
-        Order::create([
-            'company' => $request->company,
-            'product' => $request->product,
-            'details' => $request->details,
-            'status' => $request->status,
-        ]);
-        
-        return redirect()->route('orders.index')->with('success', 'Order created successfully.');
-        
+        Order::create($validated);
 
+        return redirect()->route('orders.index')
+            ->with('success', 'Order created successfully.');
     }
 
     /**
@@ -54,7 +48,8 @@ class OrderController extends Controller
     public function show(Order $order)
     {
         return view('orders.show', compact('order'));
-    }       
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -68,31 +63,27 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        $request->validate([
+        $validated = $request->validate([
             'company' => 'required|string|max:255',
             'product' => 'required|string|max:255',
-            'detail' => 'required|integer',
+            'details' => 'required|string',
             'status' => 'required|string|max:255',
         ]);
 
-        $order->update([
-            'company' => 'required|string|max:255',
-            'product' => 'required|string|max:255',
-            'detail' => 'required|integer',
-            'status' => 'required|string|max:255',
-        ]);
+        $order->update($validated);
+
         return redirect()->route('orders.index')
-                         ->with('success', 'Order updated successfully.');
+            ->with('success', 'Order updated successfully.');
     }
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Order $order)
     {
         $order->delete();
+
         return redirect()->route('orders.index')
-                         ->with('success', 'Order deleted successfully.');
+            ->with('success', 'Order deleted successfully.');
     }
 }
-
-
