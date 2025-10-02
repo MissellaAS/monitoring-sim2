@@ -50,12 +50,17 @@ class MachineController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Machine $machine)
-{
-    $products = Product::all(); // ambil produk yang terkait dengan machine ini
-    return view('machines.show', compact('machine', 'products'));
-}
-
+//     public function show(Machine $machine)
+// {
+//     $productions = Production::all(); // ambil produk yang terkait dengan machine ini
+//     return view('machines.show', compact('machine', 'productions'));
+// }
+    
+    public function show($id)
+    {
+        $machines = Machine::find($id);
+        return view('machines.show', compact('machines'));
+    }
 
     /**
      * Show the form for editing the specified resource.

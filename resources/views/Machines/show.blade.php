@@ -11,7 +11,7 @@
 
     <div class="text-center mb-5 mt-3">
         <h1 class="fw-bold text-white">SHOW MACHINE</h1>
-        <h2 class="fw-bold text-white">{{ strtoupper($machine->machine) }}</h2>
+        <h2 class="fw-bold text-white">{{ strtoupper($machines->machine) }}</h2>
     </div>
 
     <div class="text-end mt-4 mb-4 pe-4">
@@ -21,15 +21,15 @@
     <div class="row text-center mb-5 fw-bold text-white">
         <div class="col">
             <h5>MACHINE</h5>
-            <p>{{ $machine->machine }}</p>
+            <p>{{ $machines->machine }}</p>
         </div>
         <div class="col">
             <h5>CODE</h5>
-            <p>{{ $machine->code }}</p>
+            <p>{{ $machines->code }}</p>
         </div>
         <div class="col">
             <h5>DETAIL</h5>
-            <p>{{ $machine->detail }}</p>
+            <p>{{ $machines->detail }}</p>
         </div>
     </div>
 
