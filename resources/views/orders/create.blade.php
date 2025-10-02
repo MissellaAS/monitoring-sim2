@@ -183,12 +183,8 @@
 
   <div class="nav-links" id="menu">
     <a href="{{ url('/productions') }}">Home</a>
-<<<<<<< HEAD
-    <a href="{{ route('productions.create') }}">Production Monitoring</a>
-=======
     <a href="#">Product Customer</a>
-    <a href="#">Production Monitoring</a>
->>>>>>> 47a086fd2ce0f1f12eecea0ce90043e53e3cee0f
+    <a href="{{ route('productions.index') }}">Production Monitoring</a>
     <a href="{{ route('machines.index') }}">Machine Monitoring</a>
   </div>
 
@@ -225,13 +221,13 @@
 
   <!--Checkbox Pilihan Status-->
     <legend for="pilihan-lomba" class="form-label">Status Product</legend>
-    <input type="radio" class="btn-check" name="status" value="Preparation" id="success-outlined" autocomplete="off">
+    <input type="radio" class="btn-check" name="Preparations" value="Preparation" id="success-outlined" autocomplete="off">
     <label class="btn btn-primary" for="success-outlined">Preparation</label>
 
-    <input type="radio" class="btn-check" name="status"  value="Onprocess" id="option0" autocomplete="off">
+    <input type="radio" class="btn-check" name="On Process"  value="Onprocess" id="option0" autocomplete="off">
     <label class="btn btn-warning" for="option0">On Process</label>
     
-    <input type="radio" class="btn-check" name="status" value="Finish" id="option1" autocomplete="off">
+    <input type="radio" class="btn-check" name="Finish" value="Finish" id="option1" autocomplete="off">
     <label class="btn btn-success" for="option1">Finish</label>
 
     <div class="submit">

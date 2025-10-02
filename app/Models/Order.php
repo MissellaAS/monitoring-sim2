@@ -4,17 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Order extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'company',
-        'product',
-        'details',
-        'status',
-        
+        "company",
+        "product",
+        "details",
+        "Preparations",
+        "On Process",
+        "Finish",
+
     ];
-    
 }

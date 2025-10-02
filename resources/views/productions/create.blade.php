@@ -121,7 +121,7 @@
   <div class="nav-links" id="menu">
     <a href="{{ url('/productions') }}">Home</a>
     <a href="{{ route('orders.create') }}">Order List</a>
-    <a href="{{ route('products.create') }}">Production Monitoring</a>
+    <a href="{{ route('productions.create') }}">Production Monitoring</a>
     <a href="{{ route('machines.index') }}">Machine Monitoring</a>
   </div>
 
@@ -142,7 +142,7 @@
           <select name="machine_id" class="form-control">
             <option value="">Select Machine</option>
             @foreach($machines as $machine)
-            <option value="{{ $machine_id }}">{{  $machine->name }}</option>
+            <option value="{{ $machine->id }}">{{  $machine->name }}</option>
             @endforeach
           </select>
         </div>

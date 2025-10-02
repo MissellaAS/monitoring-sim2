@@ -114,7 +114,7 @@
   <div class="nav-links" id="menu">
     <a href="{{ url('/productions') }}">Home</a>
     <a href="{{ route('orders.create') }}">Order List</a>
-    <a href="#">Production Monitoring</a>
+    <a href="{{ route('productions.tabel') }}">Production Monitoring</a>
   </div>
 
   <script>
