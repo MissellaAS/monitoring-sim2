@@ -143,8 +143,8 @@
           <th>COMPANY</th>
           <th>PRODUCT</th>
           <th>DETAIL</th>
-          <th>ACTION</th>
           <th>STATUS</th>
+          <th>ACTION</th>
         </tr>
       </thead>
       <tbody>
@@ -153,7 +153,18 @@
           <td>{{ $order->id }}</td>
           <td>{{ $order->company }}</td>
           <td>{{ $order->product }}</td>
-          <td>{{ $order->detail }}</td>
+          <td>{{ $order->details }}</td>
+            <td>
+            @if($order->status === 'Preparation')
+              <button class="btn btn-status status-prep">PREPARATION</button>
+            @elseif($order->status === 'On Process')
+              <button class="btn btn-status status-process">ON PROCESS</button>
+            @elseif($order->status === 'Finish')
+              <button class="btn btn-status status-finish">FINISH</button>
+            @else
+              <span>{{ $order->status }}</span>
+            @endif
+            </td>
           <td>
             <a href="{{ route('orders.show',$order->id) }}" class="btn btn-custom btn-show">SHOW</a>
             <a href="{{ route('orders.edit',$order->id) }}" class="btn btn-custom btn-edit">EDIT</a>
@@ -163,11 +174,7 @@
               <button type="submit" class="btn btn-custom btn-delete">DELETE</button>
             </form>
           </td>
-          <td>
-            <button class="btn btn-status status-prep">PREPARATION</button>
-            <button class="btn btn-status status-process">ON PROCESS</button>
-            <button class="btn btn-status status-finish">FINISH</button>
-          </td>
+         
         </tr>
         @endforeach
       </tbody>

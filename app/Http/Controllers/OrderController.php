@@ -12,8 +12,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
-        return view('orders.index', compact('orders')); 
+        $orders = Order::latest()->get();
+        return view('orders.index', compact('orders'));
     }
 
     /**
@@ -21,8 +21,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $orders = Order::all();
-        return view('orders.create', compact('orders'));
+        return view('orders.create');
     }
 
     /**
@@ -30,27 +29,17 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'company' => 'required',
-            'products'=> 'required',
-            'details'=> 'required',
-            'Preparations'=> 'required',
-            'On process'=> 'required',
-            'Finish'=> 'required',
+        $validated = $request->validate([
+            'company' => 'required|string|max:255',
+            'product' => 'required|string|max:255',
+            'details' => 'required|string',
+            'status' => 'required|string|max:255',
         ]);
 
-        Order::create([
-            'company' => $request->company,
-            'products'=> $request->products,
-            'details'=> $request->details,
-            'Preparations'=> $request->Preparations,
-            'On process'=> $request->Onprocess,
-            'Finish'=> $request->Finish,
-        ]);
+        Order::create($validated);
 
-        return redirect()->route('orders.index')->with('success','Order created successfully.');
-
-
+        return redirect()->route('orders.index')
+            ->with('success', 'Order created successfully.');
     }
 
     /**
@@ -74,21 +63,17 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        $request->validate([
-            'company' => 'required',
-            'products'=> 'required',
-            'details'=> 'required',
-            'status'=> 'required',
+        $validated = $request->validate([
+            'company' => 'required|string|max:255',
+            'product' => 'required|string|max:255',
+            'details' => 'required|string',
+            'status' => 'required|string|max:255',
         ]);
 
-        $order->update([
-            'company' => $request->company,
-            'products'=> $request->products,
-            'details'=> $request->details,
-            'status'=> $request->status,
-        ]);
+        $order->update($validated);
 
-        return redirect()->route('orders.index')->with('success','Order updated successfully');
+        return redirect()->route('orders.index')
+            ->with('success', 'Order updated successfully.');
     }
 
     /**
@@ -98,6 +83,7 @@ class OrderController extends Controller
     {
         $order->delete();
 
-        return redirect()->route('orders.index')->with('success', 'Order deleted successfully.');
+        return redirect()->route('orders.index')
+            ->with('success', 'Order deleted successfully.');
     }
 }

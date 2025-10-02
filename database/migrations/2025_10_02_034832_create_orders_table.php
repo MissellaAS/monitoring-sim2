@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('product');
             $table->text('details');
             $table->string('status');
+
             $table->timestamps();
         });
     }
